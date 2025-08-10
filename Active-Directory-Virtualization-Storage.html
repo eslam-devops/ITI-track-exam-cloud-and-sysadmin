@@ -1,0 +1,951 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Active Directory Virtualization Storage Quiz</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            direction: rtl;
+            text-align: right;
+            background-color: #121212;
+            color: #e0e0e0;
+            padding: 20px;
+        }
+        header {
+            background-color: #1e1e1e;
+            padding: 10px;
+            text-align: center;
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+        .question-block {
+            background-color: #1e1e1e;
+            padding: 15px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+        }
+        .question {
+            font-weight: bold;
+            margin-bottom: 10px;
+            font-size: 18px;
+        }
+        .options {
+            margin-bottom: 10px;
+        }
+        .option {
+            margin-bottom: 5px;
+        }
+        .submit-btn {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            display: block;
+            margin-top: 10px;
+        }
+        .view-explanation {
+            color: #4CAF50;
+            text-decoration: none;
+            display: inline-block;
+            margin-top: 10px;
+            cursor: pointer;
+        }
+        .explanation {
+            display: none;
+            margin-top: 10px;
+            font-style: italic;
+            color: #ccc;
+        }
+        .correct {
+            color: #4CAF50;
+        }
+        .incorrect {
+            color: #f44336;
+        }
+    </style>
+</head>
+<body>
+    <header>
+         Active Directory and Virtualization and Storage Quiz
+    </header>
+    <div class="content">
+        <div class="question-block">
+            <div class="question">1. What is Active Directory (AD)?</div>
+            <div class="options">
+                <div class="option"><input type="radio" name="q1" value="a"> An advanced file system</div>
+                <div class="option"><input type="radio" name="q1" value="b"> A directory service used to manage resources in a network</div>
+                <div class="option"><input type="radio" name="q1" value="c"> A protocol for data transfer</div>
+                <div class="option"><input type="radio" name="q1" value="d"> A type of cloud storage</div>
+            </div>
+            <div class="view-explanation" onclick="toggleExplanation('explanation1')">View Explanation</div>
+            <div id="explanation1" class="explanation">
+                الإجابة الصحيحة: A directory service used to manage resources in a network. Active Directory هو خدمة دليل تستخدم في شبكات Windows لإدارة الموارد مثل المستخدمين، المجموعات، والأجهزة.
+            </div>
+            <button class="submit-btn" onclick="checkAnswer('q1', 'b', 'explanation1')">Submit</button>
+        </div>
+        <div class="question-block">
+            <div class="question">2. What is a Domain Controller in Active Directory?</div>
+            <div class="options">
+                <div class="option"><input type="radio" name="q2" value="a"> A device used for storing files</div>
+                <div class="option"><input type="radio" name="q2" value="b"> A server that stores and manages directory information</div>
+                <div class="option"><input type="radio" name="q2" value="c"> A server that installs and updates group policies</div>
+                <div class="option"><input type="radio" name="q2" value="d"> A device used for printing</div>
+            </div>
+            <div class="view-explanation" onclick="toggleExplanation('explanation2')">View Explanation</div>
+            <div id="explanation2" class="explanation">
+                الإجابة الصحيحة: A server that stores and manages directory information. Domain Controller هو خادم يقوم بتخزين وإدارة معلومات الدليل في Active Directory، ويستخدم لتوثيق المستخدمين وتطبيق السياسات.
+            </div>
+            <button class="submit-btn" onclick="checkAnswer('q2', 'b', 'explanation2')">Submit</button>
+        </div>
+        <div class="question-block">
+            <div class="question">3. What is an Organizational Unit (OU) in Active Directory?</div>
+            <div class="options">
+                <div class="option"><input type="radio" name="q3" value="a"> A group of users</div>
+                <div class="option"><input type="radio" name="q3" value="b"> An organizational unit used to organize objects within a domain</div>
+                <div class="option"><input type="radio" name="q3" value="c"> A protocol for data transfer</div>
+                <div class="option"><input type="radio" name="q3" value="d"> A type of cloud storage</div>
+            </div>
+            <div class="view-explanation" onclick="toggleExplanation('explanation3')">View Explanation</div>
+            <div id="explanation3" class="explanation">
+                الإجابة الصحيحة: An organizational unit used to organize objects within a domain. Organizational Unit (OU) هي وحدة تنظيمية تستخدم لتنظيم الكائنات مثل المستخدمين والمجموعات داخل الدومين في Active Directory.
+            </div>
+            <button class="submit-btn" onclick="checkAnswer('q3', 'b', 'explanation3')">Submit</button>
+        </div>
+        <div class="question-block">
+            <div class="question">4. What is a Group Policy Object (GPO) in Active Directory?</div>
+            <div class="options">
+                <div class="option"><input type="radio" name="q4" value="a"> A group of users</div>
+                <div class="option"><input type="radio" name="q4" value="b"> A collection of policies applied to users and computers</div>
+                <div class="option"><input type="radio" name="q4" value="c"> A protocol for data transfer</div>
+                <div class="option"><input type="radio" name="q4" value="d"> A type of cloud storage</div>
+            </div>
+            <div class="view-explanation" onclick="toggleExplanation('explanation4')">View Explanation</div>
+            <div id="explanation4" class="explanation">
+                الإجابة الصحيحة: A collection of policies applied to users and computers. Group Policy Object (GPO) هو مجموعة من السياسات التي يتم تطبيقها على المستخدمين والأجهزة في Active Directory.
+            </div>
+            <button class="submit-btn" onclick="checkAnswer('q4', 'b', 'explanation4')">Submit</button>
+        </div>
+        <div class="question-block">
+            <div class="question">5. What is the difference between a Domain and a Workgroup?</div>
+            <div class="options">
+                <div class="option"><input type="radio" name="q5" value="a"> A domain uses centralized management while a workgroup does not</div>
+                <div class="option"><input type="radio" name="q5" value="b"> A domain uses cloud storage while a workgroup uses local storage</div>
+                <div class="option"><input type="radio" name="q5" value="c"> A domain uses different protocols than a workgroup</div>
+                <div class="option"><input type="radio" name="q5" value="d"> A domain uses local management while a workgroup uses centralized management</div>
+            </div>
+            <div class="view-explanation" onclick="toggleExplanation('explanation5')">View Explanation</div>
+            <div id="explanation5" class="explanation">
+                الإجابة الصحيحة: A domain uses centralized management while a workgroup does not. الدومين يستخدم إدارة مركزية حيث يتم إدارة المستخدمين والموارد من خلال خادم مركزي، بينما العمل لا يستخدم إدارة مركزية حيث يتم إدارة كل جهاز بشكل مستقل.
+            </div>
+            <button class="submit-btn" onclick="checkAnswer('q5', 'a', 'explanation5')">Submit</button>
+        </div>
+        <div class="question-block">
+            <div class="question">6. What is a DNS Server?</div>
+            <div class="options">
+                <div class="option"><input type="radio" name="q6" value="a"> A server used for storing files</div>
+                <div class="option"><input type="radio" name="q6" value="b"> A server used to translate domain names to IP addresses</div>
+                <div class="option"><input type="radio" name="q6" value="c"> A server used for printing</div>
+                <div class="option"><input type="radio" name="q6" value="d"> A server used for managing users</div>
+            </div>
+            <div class="view-explanation" onclick="toggleExplanation('explanation6')">View Explanation</div>
+            <div id="explanation6" class="explanation">
+                الإجابة الصحيحة: A server used to translate domain names to IP addresses. DNS Server هو خادم يستخدم لتحويل أسماء النطاقات (مثل google.com) إلى عناوين IP حتى يمكن الوصول إلى المواقع على الإنترنت.
+            </div>
+            <button class="submit-btn" onclick="checkAnswer('q6', 'b', 'explanation6')">Submit</button>
+        </div>
+        <div class="question-block">
+            <div class="question">7. What is an A Record in DNS?</div>
+            <div class="options">
+                <div class="option"><input type="radio" name="q7" value="a"> A record used to translate a domain name to an IP address</div>
+                <div class="option"><input type="radio" name="q7" value="b"> A record used to translate an IP address to a domain name</div>
+                <div class="option"><input type="radio" name="q7" value="c"> A record used for managing users</div>
+                <div class="option"><input type="radio" name="q7" value="d"> A record used for printing</div>
+            </div>
+            <div class="view-explanation" onclick="toggleExplanation('explanation7')">View Explanation</div>
+            <div id="explanation7" class="explanation">
+                الإجابة الصحيحة: A record used to translate a domain name to an IP address. A Record هو سجل في DNS يستخدم لتحويل اسم النطاق إلى عنوان IP.
+            </div>
+            <button class="submit-btn" onclick="checkAnswer('q7', 'a', 'explanation7')">Submit</button>
+        </div>
+        <div class="question-block">
+            <div class="question">8. What is a CNAME in DNS?</div>
+            <div class="options">
+                <div class="option"><input type="radio" name="q8" value="a"> A record used to translate a domain name to an IP address</div>
+                <div class="option"><input type="radio" name="q8" value="b"> A record used to map one domain name to another domain name</div>
+                <div class="option"><input type="radio" name="q8" value="c"> A record used for managing users</div>
+                <div class="option"><input type="radio" name="q8" value="d"> A record used for printing</div>
+            </div>
+            <div class="view-explanation" onclick="toggleExplanation('explanation8')">View Explanation</div>
+            <div id="explanation8" class="explanation">
+                الإجابة الصحيحة: A record used to map one domain name to another domain name. CNAME هو سجل في DNS يستخدم لتحويل اسم نطاق إلى اسم نطاق آخر.
+            </div>
+            <button class="submit-btn" onclick="checkAnswer('q8', 'b', 'explanation8')">Submit</button>
+        </div>
+        <div class="question-block">
+            <div class="question">9. What is an MX Record in DNS?</div>
+            <div class="options">
+                <div class="option"><input type="radio" name="q9" value="a"> A record used to translate a domain name to an IP address</div>
+                <div class="option"><input type="radio" name="q9" value="b"> A record used to map one domain name to another domain name</div>
+                <div class="option"><input type="radio" name="q9" value="c"> A record used to specify mail servers for a domain</div>
+                <div class="option"><input type="radio" name="q9" value="d"> A record used for printing</div>
+            </div>
+            <div class="view-explanation" onclick="toggleExplanation('explanation9')">View Explanation</div>
+            <div id="explanation9" class="explanation">
+                الإجابة الصحيحة: A record used to specify mail servers for a domain. MX Record هو سجل في DNS يستخدم لتحديد خوادم البريد الإلكتروني للنطاق.
+            </div>
+            <button class="submit-btn" onclick="checkAnswer('q9', 'c', 'explanation9')">Submit</button>
+        </div>
+        <div class="question-block">
+            <div class="question">10. What is DHCP?</div>
+            <div class="options">
+                <div class="option"><input type="radio" name="q10" value="a"> A protocol used to translate domain names to IP addresses</div>
+                <div class="option"><input type="radio" name="q10" value="b"> A protocol used to automatically assign IP addresses to devices on a network</div>
+                <div class="option"><input type="radio" name="q10" value="c"> A protocol used for managing users</div>
+                <div class="option"><input type="radio" name="q10" value="d"> A protocol used for printing</div>
+            </div>
+            <div class="view-explanation" onclick="toggleExplanation('explanation10')">View Explanation</div>
+            <div id="explanation10" class="explanation">
+                الإجابة الصحيحة: A protocol used to automatically assign IP addresses to devices on a network. DHCP هو بروتوكول يستخدم لتوزيع عناوين IP تلقائيًا على الأجهزة في الشبكة.
+            </div>
+            <button class="submit-btn" onclick="checkAnswer('q10', 'b', 'explanation10')">Submit</button>
+        </div>
+        <div class="question-block">
+            <div class="question">11. What is Virtualization?</div>
+            <div class="options">
+                <div class="option"><input type="radio" name="q11" value="a"> A technology used to create backups of data</div>
+                <div class="option"><input type="radio" name="q11" value="b"> A technology used to create virtual environments on physical machines</div>
+                <div class="option"><input type="radio" name="q11" value="c"> A technology used for printing</div>
+                <div class="option"><input type="radio" name="q11" value="d"> A technology used for managing users</div>
+            </div>
+            <div class="view-explanation" onclick="toggleExplanation('explanation11')">View Explanation</div>
+            <div id="explanation11" class="explanation">
+                الإجابة الصحيحة: A technology used to create virtual environments on physical machines. Virtualization هي تقنية تستخدم لإنشاء بيئات افتراضية على أجهزة فعلية، مما يسمح بتشغيل أنظمة تشغيل متعددة على جهاز واحد.
+            </div>
+            <button class="submit-btn" onclick="checkAnswer('q11', 'b', 'explanation11')">Submit</button>
+        </div>
+        <div class="question-block">
+            <div class="question">12. What is a Hypervisor?</div>
+            <div class="options">
+                <div class="option"><input type="radio" name="q12" value="a"> A program used to create backups of data</div>
+                <div class="option"><input type="radio" name="q12" value="b"> A program used to create and manage virtual machines</div>
+                <div class="option"><input type="radio" name="q12" value="c"> A program used for printing</div>
+                <div class="option"><input type="radio" name="q12" value="d"> A program used for managing users</div>
+            </div>
+            <div class="view-explanation" onclick="toggleExplanation('explanation12')">View Explanation</div>
+            <div id="explanation12" class="explanation">
+                الإجابة الصحيحة: A program used to create and manage virtual machines. Hypervisor هو برنامج يستخدم لإنشاء وإدارة الآلات الافتراضية على الأجهزة الفعلية.
+            </div>
+            <button class="submit-btn" onclick="checkAnswer('q12', 'b', 'explanation12')">Submit</button>
+        </div>
+        <div class="question-block">
+            <div class="question">13. What is the difference between Type 1 and Type 2 Hypervisor?</div>
+            <div class="options">
+                <div class="option"><input type="radio" name="q13" value="a"> Type 1 runs directly on physical hardware while Type 2 runs on a host operating system</div>
+                <div class="option"><input type="radio" name="q13" value="b"> Type 1 is used for managing users while Type 2 is used for printing</div>
+                <div class="option"><input type="radio" name="q13" value="c"> Type 1 is used to translate domain names to IP addresses while Type 2 is used to automatically assign IP addresses</div>
+                <div class="option"><input type="radio" name="q13" value="d"> Type 1 is used to create backups of data while Type 2 is used to restore data</div>
+            </div>
+            <div class="view-explanation" onclick="toggleExplanation('explanation13')">View Explanation</div>
+            <div id="explanation13" class="explanation">
+                الإجابة الصحيحة: Type 1 runs directly on physical hardware while Type 2 runs on a host operating system. Type 1 Hypervisor يعمل مباشرة على الأجهزة الفعلية (Bare Metal) بينما Type 2 Hypervisor يعمل على نظام تشغيل مضيف.
+            </div>
+            <button class="submit-btn" onclick="checkAnswer('q13', 'a', 'explanation13')">Submit</button>
+        </div>
+        <div class="question-block">
+            <div class="question">14. What is VMware vSphere?</div>
+            <div class="options">
+                <div class="option"><input type="radio" name="q14" value="a"> A program used to create backups of data</div>
+                <div class="option"><input type="radio" name="q14" value="b"> A program used to create and manage virtual machines</div>
+                <div class="option"><input type="radio" name="q14" value="c"> A virtualization platform from VMware for managing virtual infrastructure</div>
+                <div class="option"><input type="radio" name="q14" value="d"> A program used for printing</div>
+            </div>
+            <div class="view-explanation" onclick="toggleExplanation('explanation14')">View Explanation</div>
+            <div id="explanation14" class="explanation">
+                الإجابة الصحيحة: A virtualization platform from VMware for managing virtual infrastructure. VMware vSphere هي منصة افتراضية من VMware لإدارة البنية التحتية الافتراضية، بما في ذلك إنشاء وإدارة الآلات الافتراضية.
+            </div>
+            <button class="submit-btn" onclick="checkAnswer('q14', 'c', 'explanation14')">Submit</button>
+        </div>
+        <div class="question-block">
+            <div class="question">15. What is ESXi?</div>
+            <div class="options">
+                <div class="option"><input type="radio" name="q15" value="a"> A program used to create backups of data</div>
+                <div class="option"><input type="radio" name="q15" value="b"> A program used to create and manage virtual machines</div>
+                <div class="option"><input type="radio" name="q15" value="c"> A Type 1 Hypervisor from VMware</div>
+                <div class="option"><input type="radio" name="q15" value="d"> A program used for printing</div>
+            </div>
+            <div class="view-explanation" onclick="toggleExplanation('explanation15')">View Explanation</div>
+            <div id="explanation15" class="explanation">
+                الإجابة الصحيحة: A Type 1 Hypervisor from VMware. ESXi هو Hypervisor من Type 1 من VMware، يعمل مباشرة على الأجهزة الفعلية لإنشاء وإدارة الآلات الافتراضية.
+            </div>
+            <button class="submit-btn" onclick="checkAnswer('q15', 'c', 'explanation15')">Submit</button>
+        </div>
+        <div class="question-block">
+            <div class="question">16. What is vCenter Server?</div>
+            <div class="options">
+                <div class="option"><input type="radio" name="q16" value="a"> A program used to create backups of data</div>
+                <div class="option"><input type="radio" name="q16" value="b"> A program used to create and manage virtual machines</div>
+                <div class="option"><input type="radio" name="q16" value="c"> A platform for managing virtual infrastructure from VMware</div>
+                <div class="option"><input type="radio" name="q16" value="d"> A program used for printing</div>
+            </div>
+            <div class="view-explanation" onclick="toggleExplanation('explanation16')">View Explanation</div>
+            <div id="explanation16" class="explanation">
+                الإجابة الصحيحة: A platform for managing virtual infrastructure from VMware. vCenter Server هو منصة لإدارة البنية التحتية الافتراضية من VMware، حيث يمكن إدارة عدة خوادم ESXi من خلال واجهة واحدة.
+            </div>
+            <button class="submit-btn" onclick="checkAnswer('q16', 'c', 'explanation16')">Submit</button>
+        </div>
+        <div class="question-block">
+            <div class="question">17. What is vMotion?</div>
+            <div class="options">
+                <div class="option"><input type="radio" name="q17" value="a"> A technology used to migrate virtual machines between ESXi hosts without service interruption</div>
+                <div class="option"><input type="radio" name="q17" value="b"> A technology used to create backups of data</div>
+                <div class="option"><input type="radio" name="q17" value="c"> A technology used for printing</div>
+                <div class="option"><input type="radio" name="q17" value="d"> A technology used for managing users</div>
+            </div>
+            <div class="view-explanation" onclick="toggleExplanation('explanation17')">View Explanation</div>
+            <div id="explanation17" class="explanation">
+                الإجابة الصحيحة: A technology used to migrate virtual machines between ESXi hosts without service interruption. vMotion هي تقنية تستخدم لنقل الآلات الافتراضية بين خوادم ESXi دون توقف الخدمة، مما يسمح بإجراء الصيانة دون تأثير على المستخدمين.
+            </div>
+            <button class="submit-btn" onclick="checkAnswer('q17', 'a', 'explanation17')">Submit</button>
+        </div>
+        <div class="question-block">
+            <div class="question">18. What is HA in vSphere?</div>
+            <div class="options">
+                <div class="option"><input type="radio" name="q18" value="a"> A technology used to create backups of data</div>
+                <div class="option"><input type="radio" name="q18" value="b"> A technology used to ensure the availability of virtual machines in case of host failure</div>
+                <div class="option"><input type="radio" name="q18" value="c"> A technology used for printing</div>
+                <div class="option"><input type="radio" name="q18" value="d"> A technology used for managing users</div>
+            </div>
+            <div class="view-explanation" onclick="toggleExplanation('explanation18')">View Explanation</div>
+            <div id="explanation18" class="explanation">
+                الإجابة الصحيحة: A technology used to ensure the availability of virtual machines in case of host failure. HA (High Availability) هي تقنية تستخدم لضمان توافر الآلات الافتراضية في حالة فشل الخادم، حيث يتم نقل الآلات الافتراضية إلى خوادم أخرى تلقائيًا.
+            </div>
+            <button class="submit-btn" onclick="checkAnswer('q18', 'b', 'explanation18')">Submit</button>
+        </div>
+        <div class="question-block">
+            <div class="question">19. What is DRS in vSphere?</div>
+            <div class="options">
+                <div class="option"><input type="radio" name="q19" value="a"> A technology used to create backups of data</div>
+                <div class="option"><input type="radio" name="q19" value="b"> A technology used to distribute resources among virtual machines automatically</div>
+                <div class="option"><input type="radio" name="q19" value="c"> A technology used for printing</div>
+                <div class="option"><input type="radio" name="q19" value="d"> A technology used for managing users</div>
+            </div>
+            <div class="view-explanation" onclick="toggleExplanation('explanation19')">View Explanation</div>
+            <div id="explanation19" class="explanation">
+                الإجابة الصحيحة: A technology used to distribute resources among virtual machines automatically. DRS (Distributed Resource Scheduler) هي تقنية تستخدم لتوزيع الموارد بين الآلات الافتراضية تلقائيًا، مما يحسن أداء البنية التحتية الافتراضية.
+            </div>
+            <button class="submit-btn" onclick="checkAnswer('q19', 'b', 'explanation19')">Submit</button>
+        </div>
+        <div class="question-block">
+            <div class="question">20. What is Network Virtualization?</div>
+            <div class="options">
+                <div class="option"><input type="radio" name="q20" value="a"> A technology used to create backups of data</div>
+                <div class="option"><input type="radio" name="q20" value="b"> A technology used to create virtual networks on physical infrastructure</div>
+                <div class="option"><input type="radio" name="q20" value="c"> A technology used for printing</div>
+                <div class="option"><input type="radio" name="q20" value="d"> A technology used for managing users</div>
+            </div>
+            <div class="view-explanation" onclick="toggleExplanation('explanation20')">View Explanation</div>
+            <div id="explanation20" class="explanation">
+                الإجابة الصحيحة: A technology used to create virtual networks on physical infrastructure. Network Virtualization هي تقنية تستخدم لإنشاء شبكات افتراضية على البنية التحتية الفعلية، مما يسمح بإنشاء شبكات مستقلة ومرنة.
+            </div>
+            <button class="submit-btn" onclick="checkAnswer('q20', 'b', 'explanation20')">Submit</button>
+        </div>
+        <div class="question-block">
+            <div class="question">21. What is VMware NSX?</div>
+            <div class="options">
+                <div class="option"><input type="radio" name="q21" value="a"> A program used to create backups of data</div>
+                <div class="option"><input type="radio" name="q21" value="b"> A program used to create and manage virtual machines</div>
+                <div class="option"><input type="radio" name="q21" value="c"> A virtualization platform from VMware for managing virtual networks</div>
+                <div class="option"><input type="radio" name="q21" value="d"> A program used for printing</div>
+            </div>
+            <div class="view-explanation" onclick="toggleExplanation('explanation21')">View Explanation</div>
+            <div id="explanation21" class="explanation">
+                الإجابة الصحيحة: A virtualization platform from VMware for managing virtual networks. VMware NSX هي منصة افتراضية من VMware لإدارة الشبكات الافتراضية، حيث يمكن إنشاء وإدارة الشبكات الافتراضية من خلال واجهة واحدة.
+            </div>
+            <button class="submit-btn" onclick="checkAnswer('q21', 'c', 'explanation21')">Submit</button>
+        </div>
+        <div class="question-block">
+            <div class="question">22. What is Micro-segmentation in VMware NSX?</div>
+            <div class="options">
+                <div class="option"><input type="radio" name="q22" value="a"> A technology used to create backups of data</div>
+                <div class="option"><input type="radio" name="q22" value="b"> A technology used to divide a virtual network into smaller segments to improve security</div>
+                <div class="option"><input type="radio" name="q22" value="c"> A technology used for printing</div>
+                <div class="option"><input type="radio" name="q22" value="d"> A technology used for managing users</div>
+            </div>
+            <div class="view-explanation" onclick="toggleExplanation('explanation22')">View Explanation</div>
+            <div id="explanation22" class="explanation">
+                الإجابة الصحيحة: A technology used to divide a virtual network into smaller segments to improve security. Micro-segmentation هي تقنية تستخدم لتقسيم الشبكة الافتراضية إلى أجزاء صغيرة لتحسين الأمن، حيث يمكن تطبيق سياسات أمنية مختلفة على كل جزء.
+            </div>
+            <button class="submit-btn" onclick="checkAnswer('q22', 'b', 'explanation22')">Submit</button>
+        </div>
+        <div class="question-block">
+            <div class="question">23. What is NSX Manager?</div>
+            <div class="options">
+                <div class="option"><input type="radio" name="q23" value="a"> A program used to create backups of data</div>
+                <div class="option"><input type="radio" name="q23" value="b"> A program used to create and manage virtual machines</div>
+                <div class="option"><input type="radio" name="q23" value="c"> A management interface for the VMware NSX platform</div>
+                <div class="option"><input type="radio" name="q23" value="d"> A program used for printing</div>
+            </div>
+            <div class="view-explanation" onclick="toggleExplanation('explanation23')">View Explanation</div>
+            <div id="explanation23" class="explanation">
+                الإجابة الصحيحة: A management interface for the VMware NSX platform. NSX Manager هو واجهة إدارة منصة VMware NSX، حيث يمكن إدارة الشبكات الافتراضية وتطبيق السياسات الأمنية.
+            </div>
+            <button class="submit-btn" onclick="checkAnswer('q23', 'c', 'explanation23')">Submit</button>
+        </div>
+        <div class="question-block">
+            <div class="question">24. What is NSX Controller?</div>
+            <div class="options">
+                <div class="option"><input type="radio" name="q24" value="a"> A program used to create backups of data</div>
+                <div class="option"><input type="radio" name="q24" value="b"> A program used to create and manage virtual machines</div>
+                <div class="option"><input type="radio" name="q24" value="c"> A component in VMware NSX that manages virtual network configuration</div>
+                <div class="option"><input type="radio" name="q24" value="d"> A program used for printing</div>
+            </div>
+            <div class="view-explanation" onclick="toggleExplanation('explanation24')">View Explanation</div>
+            <div id="explanation24" class="explanation">
+                الإجابة الصحيحة: A component in VMware NSX that manages virtual network configuration. NSX Controller هو مكون في منصة VMware NSX يقوم بإدارة تهيئة الشبكة الافتراضية، حيث يقوم بتوزيع المعلومات حول الشبكة الافتراضية إلى المكونات الأخرى.
+            </div>
+            <button class="submit-btn" onclick="checkAnswer('q24', 'c', 'explanation24')">Submit</button>
+        </div>
+        <div class="question-block">
+            <div class="question">25. What is NSX Edge?</div>
+            <div class="options">
+                <div class="option"><input type="radio" name="q25" value="a"> A program used to create backups of data</div>
+                <div class="option"><input type="radio" name="q25" value="b"> A program used to create and manage virtual machines</div>
+                <div class="option"><input type="radio" name="q25" value="c"> A component in VMware NSX that provides network services such as routing and firewalls</div>
+                <div class="option"><input type="radio" name="q25" value="d"> A program used for printing</div>
+            </div>
+            <div class="view-explanation" onclick="toggleExplanation('explanation25')">View Explanation</div>
+            <div id="explanation25" class="explanation">
+                الإجابة الصحيحة: A component in VMware NSX that provides network services such as routing and firewalls. NSX Edge هو مكون في منصة VMware NSX يقوم بتوفير خدمات الشبكة مثل التوجيه والجدران النارية، حيث يمكن توفير خدمات الشبكة بين الشبكات الافتراضية والشبكات الفعلية.
+            </div>
+            <button class="submit-btn" onclick="checkAnswer('q25', 'c', 'explanation25')">Submit</button>
+        </div>
+        <div class="question-block">
+            <div class="question">26. What is the difference between Type 1 and Type 2 Hypervisor?</div>
+            <div class="options">
+                <div class="option"><input type="radio" name="q26" value="a"> Type 1 runs directly on physical hardware while Type 2 runs on a host operating system</div>
+                <div class="option"><input type="radio" name="q26" value="b"> Type 1 is used for managing users while Type 2 is used for printing</div>
+                <div class="option"><input type="radio" name="q26" value="c"> Type 1 is used to translate domain names to IP addresses while Type 2 is used to automatically assign IP addresses</div>
+                <div class="option"><input type="radio" name="q26" value="d"> Type 1 is used to create backups of data while Type 2 is used to restore data</div>
+            </div>
+            <div class="view-explanation" onclick="toggleExplanation('explanation26')">View Explanation</div>
+            <div id="explanation26" class="explanation">
+                الإجابة الصحيحة: Type 1 runs directly on physical hardware while Type 2 runs on a host operating system. Type 1 Hypervisor يعمل مباشرة على الأجهزة الفعلية (Bare Metal) بينما Type 2 Hypervisor يعمل على نظام تشغيل مضيف.
+            </div>
+            <button class="submit-btn" onclick="checkAnswer('q26', 'a', 'explanation26')">Submit</button>
+        </div>
+        <div class="question-block">
+            <div class="question">27. What is VMware vSphere?</div>
+            <div class="options">
+                <div class="option"><input type="radio" name="q27" value="a"> A program used to create backups of data</div>
+                <div class="option"><input type="radio" name="q27" value="b"> A program used to create and manage virtual machines</div>
+                <div class="option"><input type="radio" name="q27" value="c"> A virtualization platform from VMware for managing virtual infrastructure</div>
+                <div class="option"><input type="radio" name="q27" value="d"> A program used for printing</div>
+            </div>
+            <div class="view-explanation" onclick="toggleExplanation('explanation27')">View Explanation</div>
+            <div id="explanation27" class="explanation">
+                الإجابة الصحيحة: A virtualization platform from VMware for managing virtual infrastructure. VMware vSphere هي منصة افتراضية من VMware لإدارة البنية التحتية الافتراضية، بما في ذلك إنشاء وإدارة الآلات الافتراضية.
+            </div>
+            <button class="submit-btn" onclick="checkAnswer('q27', 'c', 'explanation27')">Submit</button>
+        </div>
+        <div class="question-block">
+            <div class="question">28. What is ESXi?</div>
+            <div class="options">
+                <div class="option"><input type="radio" name="q28" value="a"> A program used to create backups of data</div>
+                <div class="option"><input type="radio" name="q28" value="b"> A program used to create and manage virtual machines</div>
+                <div class="option"><input type="radio" name="q28" value="c"> A Type 1 Hypervisor from VMware</div>
+                <div class="option"><input type="radio" name="q28" value="d"> A program used for printing</div>
+            </div>
+            <div class="view-explanation" onclick="toggleExplanation('explanation28')">View Explanation</div>
+            <div id="explanation28" class="explanation">
+                الإجابة الصحيحة: A Type 1 Hypervisor from VMware. ESXi هو Hypervisor من Type 1 من VMware، يعمل مباشرة على الأجهزة الفعلية لإنشاء وإدارة الآلات الافتراضية.
+            </div>
+            <button class="submit-btn" onclick="checkAnswer('q28', 'c', 'explanation28')">Submit</button>
+        </div>
+        <div class="question-block">
+            <div class="question">29. What is vCenter Server?</div>
+            <div class="options">
+                <div class="option"><input type="radio" name="q29" value="a"> A program used to create backups of data</div>
+                <div class="option"><input type="radio" name="q29" value="b"> A program used to create and manage virtual machines</div>
+                <div class="option"><input type="radio" name="q29" value="c"> A platform for managing virtual infrastructure from VMware</div>
+                <div class="option"><input type="radio" name="q29" value="d"> A program used for printing</div>
+            </div>
+            <div class="view-explanation" onclick="toggleExplanation('explanation29')">View Explanation</div>
+            <div id="explanation29" class="explanation">
+                الإجابة الصحيحة: A platform for managing virtual infrastructure from VMware. vCenter Server هو منصة لإدارة البنية التحتية الافتراضية من VMware، حيث يمكن إدارة عدة خوادم ESXi من خلال واجهة واحدة.
+            </div>
+            <button class="submit-btn" onclick="checkAnswer('q29', 'c', 'explanation29')">Submit</button>
+        </div>
+        <div class="question-block">
+            <div class="question">30. What is vMotion?</div>
+            <div class="options">
+                <div class="option"><input type="radio" name="q30" value="a"> A technology used to migrate virtual machines between ESXi hosts without service interruption</div>
+                <div class="option"><input type="radio" name="q30" value="b"> A technology used to create backups of data</div>
+                <div class="option"><input type="radio" name="q30" value="c"> A technology used for printing</div>
+                <div class="option"><input type="radio" name="q30" value="d"> A technology used for managing users</div>
+            </div>
+            <div class="view-explanation" onclick="toggleExplanation('explanation30')">View Explanation</div>
+            <div id="explanation30" class="explanation">
+                الإجابة الصحيحة: A technology used to migrate virtual machines between ESXi hosts without service interruption. vMotion هي تقنية تستخدم لنقل الآلات الافتراضية بين خوادم ESXi دون توقف الخدمة، مما يسمح بإجراء الصيانة دون تأثير على المستخدمين.
+            </div>
+            <button class="submit-btn" onclick="checkAnswer('q30', 'a', 'explanation30')">Submit</button>
+        </div>
+        <div class="question-block">
+            <div class="question">31. What is HA in vSphere?</div>
+            <div class="options">
+                <div class="option"><input type="radio" name="q31" value="a"> A technology used to create backups of data</div>
+                <div class="option"><input type="radio" name="q31" value="b"> A technology used to ensure the availability of virtual machines in case of host failure</div>
+                <div class="option"><input type="radio" name="q31" value="c"> A technology used for printing</div>
+                <div class="option"><input type="radio" name="q31" value="d"> A technology used for managing users</div>
+            </div>
+            <div class="view-explanation" onclick="toggleExplanation('explanation31')">View Explanation</div>
+            <div id="explanation31" class="explanation">
+                الإجابة الصحيحة: A technology used to ensure the availability of virtual machines in case of host failure. HA (High Availability) هي تقنية تستخدم لضمان توافر الآلات الافتراضية في حالة فشل الخادم، حيث يتم نقل الآلات الافتراضية إلى خوادم أخرى تلقائيًا.
+            </div>
+            <button class="submit-btn" onclick="checkAnswer('q31', 'b', 'explanation31')">Submit</button>
+        </div>
+        <div class="question-block">
+            <div class="question">32. What is DRS in vSphere?</div>
+            <div class="options">
+                <div class="option"><input type="radio" name="q32" value="a"> A technology used to create backups of data</div>
+                <div class="option"><input type="radio" name="q32" value="b"> A technology used to distribute resources among virtual machines automatically</div>
+                <div class="option"><input type="radio" name="q32" value="c"> A technology used for printing</div>
+                <div class="option"><input type="radio" name="q32" value="d"> A technology used for managing users</div>
+            </div>
+            <div class="view-explanation" onclick="toggleExplanation('explanation32')">View Explanation</div>
+            <div id="explanation32" class="explanation">
+                الإجابة الصحيحة: A technology used to distribute resources among virtual machines automatically. DRS (Distributed Resource Scheduler) هي تقنية تستخدم لتوزيع الموارد بين الآلات الافتراضية تلقائيًا، مما يحسن أداء البنية التحتية الافتراضية.
+            </div>
+            <button class="submit-btn" onclick="checkAnswer('q32', 'b', 'explanation32')">Submit</button>
+        </div>
+        <div class="question-block">
+            <div class="question">33. What is Block Storage?</div>
+            <div class="options">
+                <div class="option"><input type="radio" name="q33" value="a"> Storing data in blocks</div>
+                <div class="option"><input type="radio" name="q33" value="b"> Storing data in files</div>
+                <div class="option"><input type="radio" name="q33" value="c"> Storing data in objects</div>
+                <div class="option"><input type="radio" name="q33" value="d"> Storing data in databases</div>
+            </div>
+            <div class="view-explanation" onclick="toggleExplanation('explanation33')">View Explanation</div>
+            <div id="explanation33" class="explanation">
+                الإجابة الصحيحة: Storing data in blocks. Block Storage هو نوع من التخزين حيث يتم تخزين البيانات في شكل كتل، مما يسمح بالوصول السريع والفعال إلى البيانات.
+            </div>
+            <button class="submit-btn" onclick="checkAnswer('q33', 'a', 'explanation33')">Submit</button>
+        </div>
+        <div class="question-block">
+            <div class="question">34. What is File Storage?</div>
+            <div class="options">
+                <div class="option"><input type="radio" name="q34" value="a"> Storing data in blocks</div>
+                <div class="option"><input type="radio" name="q34" value="b"> Storing data in files</div>
+                <div class="option"><input type="radio" name="q34" value="c"> Storing data in objects</div>
+                <div class="option"><input type="radio" name="q34" value="d"> Storing data in databases</div>
+            </div>
+            <div class="view-explanation" onclick="toggleExplanation('explanation34')">View Explanation</div>
+            <div id="explanation34" class="explanation">
+                الإجابة الصحيحة: Storing data in files. File Storage هو نوع من التخزين حيث يتم تخزين البيانات في شكل ملفات، مما يسمح بالوصول إلى البيانات من خلال نظام الملفات.
+            </div>
+            <button class="submit-btn" onclick="checkAnswer('q34', 'b', 'explanation34')">Submit</button>
+        </div>
+        <div class="question-block">
+            <div class="question">35. What is Object Storage?</div>
+            <div class="options">
+                <div class="option"><input type="radio" name="q35" value="a"> Storing data in blocks</div>
+                <div class="option"><input type="radio" name="q35" value="b"> Storing data in files</div>
+                <div class="option"><input type="radio" name="q35" value="c"> Storing data in objects with metadata</div>
+                <div class="option"><input type="radio" name="q35" value="d"> Storing data in databases</div>
+            </div>
+            <div class="view-explanation" onclick="toggleExplanation('explanation35')">View Explanation</div>
+            <div id="explanation35" class="explanation">
+                الإجابة الصحيحة: Storing data in objects with metadata. Object Storage هو نوع من التخزين حيث يتم تخزين البيانات في شكل كائنات مع بيانات وصفية، مما يسمح بالوصول إلى البيانات من خلال واجهة برمجة التطبيقات (API).
+            </div>
+            <button class="submit-btn" onclick="checkAnswer('q35', 'c', 'explanation35')">Submit</button>
+        </div>
+        <div class="question-block">
+            <div class="question">36. What is NFS?</div>
+            <div class="options">
+                <div class="option"><input type="radio" name="q36" value="a"> A protocol for transferring data in blocks</div>
+                <div class="option"><input type="radio" name="q36" value="b"> A protocol for transferring files over networks</div>
+                <div class="option"><input type="radio" name="q36" value="c"> A protocol for transferring data in objects</div>
+                <div class="option"><input type="radio" name="q36" value="d"> A protocol for transferring data in databases</div>
+            </div>
+            <div class="view-explanation" onclick="toggleExplanation('explanation36')">View Explanation</div>
+            <div id="explanation36" class="explanation">
+                الإجابة الصحيحة: A protocol for transferring files over networks. NFS (Network File System) هو بروتوكول يستخدم لنقل الملفات في الشبكات، مما يسمح بالوصول إلى الملفات المخزنة على خوادم بعيدة.
+            </div>
+            <button class="submit-btn" onclick="checkAnswer('q36', 'b', 'explanation36')">Submit</button>
+        </div>
+        <div class="question-block">
+            <div class="question">37. What is SMB?</div>
+            <div class="options">
+                <div class="option"><input type="radio" name="q37" value="a"> A protocol for transferring data in blocks</div>
+                <div class="option"><input type="radio" name="q37" value="b"> A protocol for transferring files over networks</div>
+                <div class="option"><input type="radio" name="q37" value="c"> A protocol for transferring data in objects</div>
+                <div class="option"><input type="radio" name="q37" value="d"> A protocol for transferring data in databases</div>
+            </div>
+            <div class="view-explanation" onclick="toggleExplanation('explanation37')">View Explanation</div>
+            <div id="explanation37" class="explanation">
+                الإجابة الصحيحة: A protocol for transferring files over networks. SMB (Server Message Block) هو بروتوكول يستخدم لنقل الملفات في الشبكات، خاصة في أنظمة Windows.
+            </div>
+            <button class="submit-btn" onclick="checkAnswer('q37', 'b', 'explanation37')">Submit</button>
+        </div>
+        <div class="question-block">
+            <div class="question">38. What is SAN?</div>
+            <div class="options">
+                <div class="option"><input type="radio" name="q38" value="a"> A storage network used for transferring data in blocks</div>
+                <div class="option"><input type="radio" name="q38" value="b"> A storage network used for transferring files over networks</div>
+                <div class="option"><input type="radio" name="q38" value="c"> A storage network used for transferring data in objects</div>
+                <div class="option"><input type="radio" name="q38" value="d"> A storage network used for transferring data in databases</div>
+            </div>
+            <div class="view-explanation" onclick="toggleExplanation('explanation38')">View Explanation</div>
+            <div id="explanation38" class="explanation">
+                الإجابة الصحيحة: A storage network used for transferring data in blocks. SAN (Storage Area Network) هي شبكة تخزين تستخدم لنقل البيانات في شكل كتل، مما يسمح بالوصول السريع والفعال إلى البيانات المخزنة على أجهزة التخزين.
+            </div>
+            <button class="submit-btn" onclick="checkAnswer('q38', 'a', 'explanation38')">Submit</button>
+        </div>
+        <div class="question-block">
+            <div class="question">39. What is iSCSI?</div>
+            <div class="options">
+                <div class="option"><input type="radio" name="q39" value="a"> A protocol for transferring data in blocks over networks</div>
+                <div class="option"><input type="radio" name="q39" value="b"> A protocol for transferring files over networks</div>
+                <div class="option"><input type="radio" name="q39" value="c"> A protocol for transferring data in objects</div>
+                <div class="option"><input type="radio" name="q39" value="d"> A protocol for transferring data in databases</div>
+            </div>
+            <div class="view-explanation" onclick="toggleExplanation('explanation39')">View Explanation</div>
+            <div id="explanation39" class="explanation">
+                الإجابة الصحيحة: A protocol for transferring data in blocks over networks. iSCSI (Internet Small Computer System Interface) هو بروتوكول يستخدم لنقل البيانات في شكل كتل عبر الشبكات، مما يسمح بالوصول إلى أجهزة التخزين عبر الشبكة.
+            </div>
+            <button class="submit-btn" onclick="checkAnswer('q39', 'a', 'explanation39')">Submit</button>
+        </div>
+        <div class="question-block">
+            <div class="question">40. What is RAID?</div>
+            <div class="options">
+                <div class="option"><input type="radio" name="q40" value="a"> A technology used to create backups of data</div>
+                <div class="option"><input type="radio" name="q40" value="b"> A technology used to combine multiple hard drives into a single unit to improve performance and reliability</div>
+                <div class="option"><input type="radio" name="q40" value="c"> A technology used for printing</div>
+                <div class="option"><input type="radio" name="q40" value="d"> A technology used for managing users</div>
+            </div>
+            <div class="view-explanation" onclick="toggleExplanation('explanation40')">View Explanation</div>
+            <div id="explanation40" class="explanation">
+                الإجابة الصحيحة: A technology used to combine multiple hard drives into a single unit to improve performance and reliability. RAID (Redundant Array of Independent Disks) هي تقنية تستخدم لتجميع عدة أقراص صلبة في وحدة واحدة لتحسين الأداء والموثوقية، حيث يمكن توزيع البيانات على عدة أقراص صلبة.
+            </div>
+            <button class="submit-btn" onclick="checkAnswer('q40', 'b', 'explanation40')">Submit</button>
+        </div>
+        <div class="question-block">
+            <div class="question">41. What is RAID 0?</div>
+            <div class="options">
+                <div class="option"><input type="radio" name="q41" value="a"> A technology used to create backups of data</div>
+                <div class="option"><input type="radio" name="q41" value="b"> A technology used to distribute data across multiple hard drives to improve performance</div>
+                <div class="option"><input type="radio" name="q41" value="c"> A technology used for printing</div>
+                <div class="option"><input type="radio" name="q41" value="d"> A technology used for managing users</div>
+            </div>
+            <div class="view-explanation" onclick="toggleExplanation('explanation41')">View Explanation</div>
+            <div id="explanation41" class="explanation">
+                الإجابة الصحيحة: A technology used to distribute data across multiple hard drives to improve performance. RAID 0 هي تقنية تستخدم لتوزيع البيانات على عدة أقراص صلبة لتحسين الأداء، حيث يتم تقسيم البيانات إلى كتل وتوزيعها على الأقراص الصلبة.
+            </div>
+            <button class="submit-btn" onclick="checkAnswer('q41', 'b', 'explanation41')">Submit</button>
+        </div>
+        <div class="question-block">
+            <div class="question">42. What is RAID 1?</div>
+            <div class="options">
+                <div class="option"><input type="radio" name="q42" value="a"> A technology used to create backups of data</div>
+                <div class="option"><input type="radio" name="q42" value="b"> A technology used to replicate data across multiple hard drives to improve reliability</div>
+                <div class="option"><input type="radio" name="q42" value="c"> A technology used for printing</div>
+                <div class="option"><input type="radio" name="q42" value="d"> A technology used for managing users</div>
+            </div>
+            <div class="view-explanation" onclick="toggleExplanation('explanation42')">View Explanation</div>
+            <div id="explanation42" class="explanation">
+                الإجابة الصحيحة: A technology used to replicate data across multiple hard drives to improve reliability. RAID 1 هي تقنية تستخدم لتكرار البيانات على عدة أقراص صلبة لتحسين الموثوقية، حيث يتم نسخ البيانات على قرصين صلبين أو أكثر.
+            </div>
+            <button class="submit-btn" onclick="checkAnswer('q42', 'b', 'explanation42')">Submit</button>
+        </div>
+        <div class="question-block">
+            <div class="question">43. What is RAID 5?</div>
+            <div class="options">
+                <div class="option"><input type="radio" name="q43" value="a"> A technology used to create backups of data</div>
+                <div class="option"><input type="radio" name="q43" value="b"> A technology used to distribute data and parity across multiple hard drives to improve performance and reliability</div>
+                <div class="option"><input type="radio" name="q43" value="c"> A technology used for printing</div>
+                <div class="option"><input type="radio" name="q43" value="d"> A technology used for managing users</div>
+            </div>
+            <div class="view-explanation" onclick="toggleExplanation('explanation43')">View Explanation</div>
+            <div id="explanation43" class="explanation">
+                الإجابة الصحيحة: A technology used to distribute data and parity across multiple hard drives to improve performance and reliability. RAID 5 هي تقنية تستخدم لتوزيع البيانات والتكافؤ على عدة أقراص صلبة لتحسين الأداء والموثوقية، حيث يتم توزيع البيانات والتكافؤ على الأقراص الصلبة.
+            </div>
+            <button class="submit-btn" onclick="checkAnswer('q43', 'b', 'explanation43')">Submit</button>
+        </div>
+        <div class="question-block">
+            <div class="question">44. What is RAID 10?</div>
+            <div class="options">
+                <div class="option"><input type="radio" name="q44" value="a"> A technology used to create backups of data</div>
+                <div class="option"><input type="radio" name="q44" value="b"> A combination of RAID 1 and RAID 0 to improve performance and reliability</div>
+                <div class="option"><input type="radio" name="q44" value="c"> A technology used for printing</div>
+                <div class="option"><input type="radio" name="q44" value="d"> A technology used for managing users</div>
+            </div>
+            <div class="view-explanation" onclick="toggleExplanation('explanation44')">View Explanation</div>
+            <div id="explanation44" class="explanation">
+                الإجابة الصحيحة: A combination of RAID 1 and RAID 0 to improve performance and reliability. RAID 10 هي تقنية تجمع بين RAID 1 و RAID 0 لتحسين الأداء والموثوقية، حيث يتم استخدام التكرار والتوزيع معًا.
+            </div>
+            <button class="submit-btn" onclick="checkAnswer('q44', 'b', 'explanation44')">Submit</button>
+        </div>
+        <div class="question-block">
+            <div class="question">45. What is Full Backup?</div>
+            <div class="options">
+                <div class="option"><input type="radio" name="q45" value="a"> A backup of all data</div>
+                <div class="option"><input type="radio" name="q45" value="b"> A backup of only changed data since the last full backup</div>
+                <div class="option"><input type="radio" name="q45" value="c"> A backup of only changed data since the last backup</div>
+                <div class="option"><input type="radio" name="q45" value="d"> A backup used for printing</div>
+            </div>
+            <div class="view-explanation" onclick="toggleExplanation('explanation45')">View Explanation</div>
+            <div id="explanation45" class="explanation">
+                الإجابة الصحيحة: A backup of all data. Full Backup هو نسخ احتياطي لجميع البيانات، حيث يتم نسخ جميع البيانات في كل مرة يتم فيها إجراء النسخ الاحتياطي.
+            </div>
+            <button class="submit-btn" onclick="checkAnswer('q45', 'a', 'explanation45')">Submit</button>
+        </div>
+        <div class="question-block">
+            <div class="question">46. What is Incremental Backup?</div>
+            <div class="options">
+                <div class="option"><input type="radio" name="q46" value="a"> A backup of all data</div>
+                <div class="option"><input type="radio" name="q46" value="b"> A backup of only changed data since the last full backup</div>
+                <div class="option"><input type="radio" name="q46" value="c"> A backup of only changed data since the last backup</div>
+                <div class="option"><input type="radio" name="q46" value="d"> A backup used for printing</div>
+            </div>
+            <div class="view-explanation" onclick="toggleExplanation('explanation46')">View Explanation</div>
+            <div id="explanation46" class="explanation">
+                الإجابة الصحيحة: A backup of only changed data since the last backup. Incremental Backup هو نسخ احتياطي فقط للبيانات المتغيرة منذ آخر نسخ احتياطي، مما يقلل من الوقت والمساحة المطلوبين للنسخ الاحتياطي.
+            </div>
+            <button class="submit-btn" onclick="checkAnswer('q46', 'c', 'explanation46')">Submit</button>
+        </div>
+        <div class="question-block">
+            <div class="question">47. What is Differential Backup?</div>
+            <div class="options">
+                <div class="option"><input type="radio" name="q47" value="a"> A backup of all data</div>
+                <div class="option"><input type="radio" name="q47" value="b"> A backup of only changed data since the last full backup</div>
+                <div class="option"><input type="radio" name="q47" value="c"> A backup of only changed data since the last backup</div>
+                <div class="option"><input type="radio" name="q47" value="d"> A backup used for printing</div>
+            </div>
+            <div class="view-explanation" onclick="toggleExplanation('explanation47')">View Explanation</div>
+            <div id="explanation47" class="explanation">
+                الإجابة الصحيحة: A backup of only changed data since the last full backup. Differential Backup هو نسخ احتياطي فقط للبيانات المتغيرة منذ آخر نسخ احتياطي كامل، مما يقلل من الوقت والمساحة المطلوبين للنسخ الاحتياطي.
+            </div>
+            <button class="submit-btn" onclick="checkAnswer('q47', 'b', 'explanation47')">Submit</button>
+        </div>
+        <div class="question-block">
+            <div class="question">48. What is a Backup Window?</div>
+            <div class="options">
+                <div class="option"><input type="radio" name="q48" value="a"> A time period during which backups are performed</div>
+                <div class="option"><input type="radio" name="q48" value="b"> A backup of all data</div>
+                <div class="option"><input type="radio" name="q48" value="c"> A backup of only changed data since the last backup</div>
+                <div class="option"><input type="radio" name="q48" value="d"> A backup used for printing</div>
+            </div>
+            <div class="view-explanation" onclick="toggleExplanation('explanation48')">View Explanation</div>
+            <div id="explanation48" class="explanation">
+                الإجابة الصحيحة: A time period during which backups are performed. Backup Window هو الفترة الزمنية التي يتم فيها إجراء النسخ الاحتياطي، حيث يتم اختيار الوقت الذي يكون فيه تأثير النسخ الاحتياطي على الأداء أقل ما يمكن.
+            </div>
+            <button class="submit-btn" onclick="checkAnswer('q48', 'a', 'explanation48')">Submit</button>
+        </div>
+        <div class="question-block">
+            <div class="question">49. What is a Recovery Point Objective (RPO)?</div>
+            <div class="options">
+                <div class="option"><input type="radio" name="q49" value="a"> The maximum acceptable amount of data loss measured in time</div>
+                <div class="option"><input type="radio" name="q49" value="b"> A backup of all data</div>
+                <div class="option"><input type="radio" name="q49" value="c"> A backup of only changed data since the last backup</div>
+                <div class="option"><input type="radio" name="q49" value="d"> A backup used for printing</div>
+            </div>
+            <div class="view-explanation" onclick="toggleExplanation('explanation49')">View Explanation</div>
+            <div id="explanation49" class="explanation">
+                الإجابة الصحيحة: The maximum acceptable amount of data loss measured in time. Recovery Point Objective (RPO) هو أقصى مقدار مقبول لفقدان البيانات مقاسًا بالوقت، حيث يتم تحديد الوقت الذي يمكن فيه فقدان البيانات دون تأثير كبير على الأعمال.
+            </div>
+            <button class="submit-btn" onclick="checkAnswer('q49', 'a', 'explanation49')">Submit</button>
+        </div>
+        <div class="question-block">
+            <div class="question">50. What is a Recovery Time Objective (RTO)?</div>
+            <div class="options">
+                <div class="option"><input type="radio" name="q50" value="a"> The maximum acceptable amount of time needed to restore data after a failure</div>
+                <div class="option"><input type="radio" name="q50" value="b"> A backup of all data</div>
+                <div class="option"><input type="radio" name="q50" value="c"> A backup of only changed data since the last backup</div>
+                <div class="option"><input type="radio" name="q50" value="d"> A backup used for printing</div>
+            </div>
+            <div class="view-explanation" onclick="toggleExplanation('explanation50')">View Explanation</div>
+            <div id="explanation50" class="explanation">
+                الإجابة الصحيحة: The maximum acceptable amount of time needed to restore data after a failure. Recovery Time Objective (RTO) هو أقصى مقدار مقبول من الوقت اللازم لاستعادة البيانات بعد فشل، حيث يتم تحديد الوقت الذي يمكن فيه استعادة البيانات دون تأثير كبير على الأعمال.
+            </div>
+            <button class="submit-btn" onclick="checkAnswer('q50', 'a', 'explanation50')">Submit</button>
+        </div>
+        <div class="question-block">
+            <div class="question">51. What is a Backup Policy?</div>
+            <div class="options">
+                <div class="option"><input type="radio" name="q51" value="a"> A set of rules and procedures for creating and managing backups</div>
+                <div class="option"><input type="radio" name="q51" value="b"> A backup of all data</div>
+                <div class="option"><input type="radio" name="q51" value="c"> A backup of only changed data since the last backup</div>
+                <div class="option"><input type="radio" name="q51" value="d"> A backup used for printing</div>
+            </div>
+            <div class="view-explanation" onclick="toggleExplanation('explanation51')">View Explanation</div>
+            <div id="explanation51" class="explanation">
+                الإجابة الصحيحة: A set of rules and procedures for creating and managing backups. Backup Policy هو مجموعة من القواعد والإجراءات لإنشاء وإدارة النسخ الاحتياطية، حيث يتم تحديد كيفية ومتى يتم إجراء النسخ الاحتياطي.
+            </div>
+            <button class="submit-btn" onclick="checkAnswer('q51', 'a', 'explanation51')">Submit</button>
+        </div>
+        <div class="question-block">
+            <div class="question">52. What is a Backup Schedule?</div>
+            <div class="options">
+                <div class="option"><input type="radio" name="q52" value="a"> A plan that specifies when and how often backups should be performed</div>
+                <div class="option"><input type="radio" name="q52" value="b"> A backup of all data</div>
+                <div class="option"><input type="radio" name="q52" value="c"> A backup of only changed data since the last backup</div>
+                <div class="option"><input type="radio" name="q52" value="d"> A backup used for printing</div>
+            </div>
+            <div class="view-explanation" onclick="toggleExplanation('explanation52')">View Explanation</div>
+            <div id="explanation52" class="explanation">
+                الإجابة الصحيحة: A plan that specifies when and how often backups should be performed. Backup Schedule هو خطة تحدد متى وكيفية إجراء النسخ الاحتياطي، حيث يتم تحديد الوقت والتكرار اللازمين للنسخ الاحتياطي.
+            </div>
+            <button class="submit-btn" onclick="checkAnswer('q52', 'a', 'explanation52')">Submit</button>
+        </div>
+        <div class="question-block">
+            <div class="question">53. What is a Backup Retention Policy?</div>
+            <div class="options">
+                <div class="option"><input type="radio" name="q53" value="a"> A policy that specifies how long backups should be kept</div>
+                <div class="option"><input type="radio" name="q53" value="b"> A backup of all data</div>
+                <div class="option"><input type="radio" name="q53" value="c"> A backup of only changed data since the last backup</div>
+                <div class="option"><input type="radio" name="q53" value="d"> A backup used for printing</div>
+            </div>
+            <div class="view-explanation" onclick="toggleExplanation('explanation53')">View Explanation</div>
+            <div id="explanation53" class="explanation">
+                الإجابة الصحيحة: A policy that specifies how long backups should be kept. Backup Retention Policy هو سياسة تحدد مدى الوقت الذي يجب الاحتفاظ بالنسخ الاحتياطية، حيث يتم تحديد الوقت اللازم للاحتفاظ بالنسخ الاحتياطية قبل حذفها.
+            </div>
+            <button class="submit-btn" onclick="checkAnswer('q53', 'a', 'explanation53')">Submit</button>
+        </div>
+        <div class="question-block">
+            <div class="question">54. What is a Backup Verification?</div>
+            <div class="options">
+                <div class="option"><input type="radio" name="q54" value="a"> A process to ensure that backups are complete and can be restored</div>
+                <div class="option"><input type="radio" name="q54" value="b"> A backup of all data</div>
+                <div class="option"><input type="radio" name="q54" value="c"> A backup of only changed data since the last backup</div>
+                <div class="option"><input type="radio" name="q54" value="d"> A backup used for printing</div>
+            </div>
+            <div class="view-explanation" onclick="toggleExplanation('explanation54')">View Explanation</div>
+            <div id="explanation54" class="explanation">
+                الإجابة الصحيحة: A process to ensure that backups are complete and can be restored. Backup Verification هو عملية للتأكد من أن النسخ الاحتياطية كاملة ويمكن استعادتها، حيث يتم اختبار النسخ الاحتياطية للتأكد من صحتها.
+            </div>
+            <button class="submit-btn" onclick="checkAnswer('q54', 'a', 'explanation54')">Submit</button>
+        </div>
+        <div class="question-block">
+            <div class="question">55. What is a Backup Encryption?</div>
+            <div class="options">
+                <div class="option"><input type="radio" name="q55" value="a"> A process to protect backups by converting them into a secure format</div>
+                <div class="option"><input type="radio" name="q55" value="b"> A backup of all data</div>
+                <div class="option"><input type="radio" name="q55" value="c"> A backup of only changed data since the last backup</div>
+                <div class="option"><input type="radio" name="q55" value="d"> A backup used for printing</div>
+            </div>
+            <div class="view-explanation" onclick="toggleExplanation('explanation55')">View Explanation</div>
+            <div id="explanation55" class="explanation">
+                الإجابة الصحيحة: A process to protect backups by converting them into a secure format. Backup Encryption هو عملية لحماية النسخ الاحتياطية عن طريق تحويلها إلى شكل آمن، حيث يتم تشفير النسخ الاحتياطية لمنع الوصول غير المصرح به.
+            </div>
+            <button class="submit-btn" onclick="checkAnswer('q55', 'a', 'explanation55')">Submit</button>
+        </div>
+        <div class="question-block">
+            <div class="question">56. What is a Backup Compression?</div>
+            <div class="options">
+                <div class="option"><input type="radio" name="q56" value="a"> A process to reduce the size of backups to save storage space</div>
+                <div class="option"><input type="radio" name="q56" value="b"> A backup of all data</div>
+                <div class="option"><input type="radio" name="q56" value="c"> A backup of only changed data since the last backup</div>
+                <div class="option"><input type="radio" name="q56" value="d"> A backup used for printing</div>
+            </div>
+            <div class="view-explanation" onclick="toggleExplanation('explanation56')">View Explanation</div>
+            <div id="explanation56" class="explanation">
+                الإجابة الصحيحة: A process to reduce the size of backups to save storage space. Backup Compression هو عملية لتقليل حجم النسخ الاحتياطية لتوفير مساحة التخزين، حيث يتم ضغط البيانات لتقليل الحجم الإجمالي للنسخ الاحتياطية.
+            </div>
+            <button class="submit-btn" onclick="checkAnswer('q56', 'a', 'explanation56')">Submit</button>
+        </div>
+        <div class="question-block">
+            <div class="question">57. What is a Backup Deduplication?</div>
+            <div class="options">
+                <div class="option"><input type="radio" name="q57" value="a"> A process to eliminate duplicate data in backups to save storage space</div>
+                <div class="option"><input type="radio" name="q57" value="b"> A backup of all data</div>
+                <div class="option"><input type="radio" name="q57" value="c"> A backup of only changed data since the last backup</div>
+                <div class="option"><input type="radio" name="q57" value="d"> A backup used for printing</div>
+            </div>
+            <div class="view-explanation" onclick="toggleExplanation('explanation57')">View Explanation</div>
+            <div id="explanation57" class="explanation">
+                الإجابة الصحيحة: A process to eliminate duplicate data in backups to save storage space. Backup Deduplication هو عملية لإزالة البيانات المكررة في النسخ الاحتياطية لتوفير مساحة التخزين، حيث يتم إزالة البيانات المكررة لتقليل الحجم الإجمالي للنسخ الاحتياطية.
+            </div>
+            <button class="submit-btn" onclick="checkAnswer('q57', 'a', 'explanation57')">Submit</button>
+        </div>
+        <div class="question-block">
+            <div class="question">58. What is a Backup Software?</div>
+            <div class="options">
+                <div class="option"><input type="radio" name="q58" value="a"> A software used to create and manage backups</div>
+                <div class="option"><input type="radio" name="q58" value="b"> A backup of all data</div>
+                <div class="option"><input type="radio" name="q58" value="c"> A backup of only changed data since the last backup</div>
+                <div class="option"><input type="radio" name="q58" value="d"> A backup used for printing</div>
+            </div>
+            <div class="view-explanation" onclick="toggleExplanation('explanation58')">View Explanation</div>
+            <div id="explanation58" class="explanation">
+                الإجابة الصحيحة: A software used to create and manage backups. Backup Software هو برنامج يستخدم لإنشاء وإدارة النسخ الاحتياطية، حيث يتم استخدام البرنامج لإنشاء النسخ الاحتياطية وإدارتها.
+            </div>
+            <button class="submit-btn" onclick="checkAnswer('q58', 'a', 'explanation58')">Submit</button>
+        </div>
+        <div class="question-block">
+            <div class="question">59. What is a Backup Storage?</div>
+            <div class="options">
+                <div class="option"><input type="radio" name="q59" value="a"> A storage used to store backups</div>
+                <div class="option"><input type="radio" name="q59" value="b"> A backup of all data</div>
+                <div class="option"><input type="radio" name="q59" value="c"> A backup of only changed data since the last backup</div>
+                <div class="option"><input type="radio" name="q59" value="d"> A backup used for printing</div>
+            </div>
+            <div class="view-explanation" onclick="toggleExplanation('explanation59')">View Explanation</div>
+            <div id="explanation59" class="explanation">
+                الإجابة الصحيحة: A storage used to store backups. Backup Storage هو تخزين يستخدم لتخزين النسخ الاحتياطية، حيث يتم استخدام أجهزة التخزين المختلفة لتخزين النسخ الاحتياطية.
+            </div>
+            <button class="submit-btn" onclick="checkAnswer('q59', 'a', 'explanation59')">Submit</button>
+        </div>
+        <div class="question-block">
+            <div class="question">60. What is a Backup Restoration?</div>
+            <div class="options">
+                <div class="option"><input type="radio" name="q60" value="a"> A process to restore data from backups</div>
+                <div class="option"><input type="radio" name="q60" value="b"> A backup of all data</div>
+                <div class="option"><input type="radio" name="q60" value="c"> A backup of only changed data since the last backup</div>
+                <div class="option"><input type="radio" name="q60" value="d"> A backup used for printing</div>
+            </div>
+            <div class="view-explanation" onclick="toggleExplanation('explanation60')">View Explanation</div>
+            <div id="explanation60" class="explanation">
+                الإجابة الصحيحة: A process to restore data from backups. Backup Restoration هو عملية لاستعادة البيانات من النسخ الاحتياطية، حيث يتم استخدام النسخ الاحتياطية لاستعادة البيانات في حالة فقدانها أو تلفها.
+            </div>
+            <button class="submit-btn" onclick="checkAnswer('q60', 'a', 'explanation60')">Submit</button>
+        </div>
+    </div>
+
+    <script>
+        function toggleExplanation(explanationId) {
+            const explanation = document.getElementById(explanationId);
+            if (explanation.style.display === 'none') {
+                explanation.style.display = 'block';
+            } else {
+                explanation.style.display = 'none';
+            }
+        }
+
+        function checkAnswer(questionName, correctAnswer, explanationId) {
+            const selectedAnswer = document.querySelector(`input[name="${questionName}"]:checked`);
+            const explanation = document.getElementById(explanationId);
+            explanation.style.display = 'block';
+
+            const options = document.querySelectorAll(`input[name="${questionName}"]`);
+            options.forEach(option => {
+                const label = option.parentElement;
+                if (option.value === correctAnswer) {
+                    label.classList.add('correct');
+                    label.classList.remove('incorrect');
+                } else if (option === selectedAnswer) {
+                    label.classList.add('incorrect');
+                    label.classList.remove('correct');
+                } else {
+                    label.classList.remove('correct', 'incorrect');
+                }
+            });
+        }
+    </script>
+</body>
+</html>
