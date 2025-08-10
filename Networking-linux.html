@@ -1,0 +1,923 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Networking and Linux Administration Quiz</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            direction: rtl;
+            text-align: right;
+            background-color: #121212;
+            color: #e0e0e0;
+            padding: 20px;
+        }
+        header {
+            background-color: #1e1e1e;
+            padding: 10px;
+            text-align: center;
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+        .question-block {
+            background-color: #1e1e1e;
+            padding: 15px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+        }
+        .question {
+            font-weight: bold;
+            margin-bottom: 10px;
+            font-size: 18px;
+        }
+        .options {
+            margin-bottom: 10px;
+        }
+        .option {
+            margin-bottom: 5px;
+        }
+        .submit-btn {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            display: block;
+            margin-top: 10px;
+        }
+        .view-explanation {
+            color: #4CAF50;
+            text-decoration: none;
+            display: inline-block;
+            margin-top: 10px;
+            cursor: pointer;
+        }
+        .explanation {
+            display: none;
+            margin-top: 10px;
+            font-style: italic;
+            color: #ccc;
+        }
+        .correct {
+            color: #4CAF50;
+        }
+        .incorrect {
+            color: #f44336;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        Networking and Linux Administration Quiz
+    </header>
+    <div class="content">
+        <div class="question-block">
+            <div class="question">1. What does OSI stand for?</div>
+            <div class="options">
+                <div class="option"><input type="radio" name="q1" value="a"> Open System Interface</div>
+                <div class="option"><input type="radio" name="q1" value="b"> Open System Interconnection</div>
+                <div class="option"><input type="radio" name="q1" value="c"> Operating System Interface</div>
+                <div class="option"><input type="radio" name="q1" value="d"> Operating System Internet</div>
+            </div>
+            <div class="view-explanation" onclick="toggleExplanation('explanation1')">View Explanation</div>
+            <div id="explanation1" class="explanation">
+                OSI تعني "ترابط الأنظمة المفتوحة". وهو نموذج نظري تم إنشاؤه بواسطة منظمة ISO ويقسم بنية الشبكة إلى سبع طبقات.
+            </div>
+            <button class="submit-btn" onclick="checkAnswer('q1', 'b', 'explanation1')">Submit</button>
+        </div>
+        <div class="question-block">
+            <div class="question">2. How many layers are there in the OSI model?</div>
+            <div class="options">
+                <div class="option"><input type="radio" name="q2" value="a"> 5 layers</div>
+                <div class="option"><input type="radio" name="q2" value="b"> 6 layers</div>
+                <div class="option"><input type="radio" name="q2" value="c"> 7 layers</div>
+                <div class="option"><input type="radio" name="q2" value="d"> 8 layers</div>
+            </div>
+            <div class="view-explanation" onclick="toggleExplanation('explanation2')">View Explanation</div>
+            <div id="explanation2" class="explanation">
+                نموذج OSI يتكون من سبع طبقات تصف كيف تنتقل البيانات من المرسل إلى المستقبل.
+            </div>
+            <button class="submit-btn" onclick="checkAnswer('q2', 'c', 'explanation2')">Submit</button>
+        </div>
+        <div class="question-block">
+            <div class="question">3. Which layer in the OSI model does a router operate?</div>
+            <div class="options">
+                <div class="option"><input type="radio" name="q3" value="a"> Layer 1</div>
+                <div class="option"><input type="radio" name="q3" value="b"> Layer 2</div>
+                <div class="option"><input type="radio" name="q3" value="c"> Layer 3</div>
+                <div class="option"><input type="radio" name="q3" value="d"> Layer 4</div>
+            </div>
+            <div class="view-explanation" onclick="toggleExplanation('explanation3')">View Explanation</div>
+            <div id="explanation3" class="explanation">
+                يعمل الموجه (الراوتر) في الطبقة الثالثة (طبقة الشبكة) في نموذج OSI ويفهم عناوين IP و MAC.
+            </div>
+            <button class="submit-btn" onclick="checkAnswer('q3', 'c', 'explanation3')">Submit</button>
+        </div>
+        <div class="question-block">
+            <div class="question">4. What is the primary function of a switch?</div>
+            <div class="options">
+                <div class="option"><input type="radio" name="q4" value="a"> To connect devices in different networks</div>
+                <div class="option"><input type="radio" name="q4" value="b"> To connect devices in the same network</div>
+                <div class="option"><input type="radio" name="q4" value="c"> To convert digital signals to analog signals</div>
+                <div class="option"><input type="radio" name="q4" value="d"> To boost weak signals</div>
+            </div>
+            <div class="view-explanation" onclick="toggleExplanation('explanation4')">View Explanation</div>
+            <div id="explanation4" class="explanation">
+                يتم استخدام المبدل (السويتش) لتوصيل الأجهزة داخل نفس الشبكة ويمكنه تقسيم شبكة واحدة إلى عدة قطاعات.
+            </div>
+            <button class="submit-btn" onclick="checkAnswer('q4', 'b', 'explanation4')">Submit</button>
+        </div>
+        <div class="question-block">
+            <div class="question">5. At which OSI layer does a hub operate?</div>
+            <div class="options">
+                <div class="option"><input type="radio" name="q5" value="a"> Layer 1</div>
+                <div class="option"><input type="radio" name="q5" value="b"> Layer 2</div>
+                <div class="option"><input type="radio" name="q5" value="c"> Layer 3</div>
+                <div class="option"><input type="radio" name="q5" value="d"> Layer 4</div>
+            </div>
+            <div class="view-explanation" onclick="toggleExplanation('explanation5')">View Explanation</div>
+            <div id="explanation5" class="explanation">
+                يعمل المحور (الهاب) في الطبقة الأولى (الطبقة الفيزيائية) في نموذج OSI ولا يفهم عناوين IP أو MAC.
+            </div>
+            <button class="submit-btn" onclick="checkAnswer('q5', 'a', 'explanation5')">Submit</button>
+        </div>
+        <div class="question-block">
+            <div class="question">6. What is the main function of a modem?</div>
+            <div class="options">
+                <div class="option"><input type="radio" name="q6" value="a"> To connect different networks</div>
+                <div class="option"><input type="radio" name="q6" value="b"> To convert digital signals to analog signals and vice versa</div>
+                <div class="option"><input type="radio" name="q6" value="c"> To boost weak signals</div>
+                <div class="option"><input type="radio" name="q6" value="d"> To manage network resources</div>
+            </div>
+            <div class="view-explanation" onclick="toggleExplanation('explanation6')">View Explanation</div>
+            <div id="explanation6" class="explanation">
+                يقوم المودم بتحويل الإشارات الرقمية إلى إشارات تناظرية والعكس، مما يسمح للمستخدمين بالاتصال بالإنترنت عبر خط الهاتف.
+            </div>
+            <button class="submit-btn" onclick="checkAnswer('q6', 'b', 'explanation6')">Submit</button>
+        </div>
+        <div class="question-block">
+            <div class="question">7. What is the purpose of a splitter?</div>
+            <div class="options">
+                <div class="option"><input type="radio" name="q7" value="a"> To boost weak signals</div>
+                <div class="option"><input type="radio" name="q7" value="b"> To separate voice and data signals</div>
+                <div class="option"><input type="radio" name="q7" value="c"> To convert digital signals to analog signals</div>
+                <div class="option"><input type="radio" name="q7" value="d"> To manage network resources</div>
+            </div>
+            <div class="view-explanation" onclick="toggleExplanation('explanation7')">View Explanation</div>
+            <div id="explanation7" class="explanation">
+                يتم استخدام المقسم (السبليتر) لفصل إشارات الصوت والبيانات للحفاظ على سرعة الاتصال ومنع التداخل.
+            </div>
+            <button class="submit-btn" onclick="checkAnswer('q7', 'b', 'explanation7')">Submit</button>
+        </div>
+        <div class="question-block">
+            <div class="question">8. What does DHCP stand for?</div>
+            <div class="options">
+                <div class="option"><input type="radio" name="q8" value="a"> Dynamic Host Configuration Protocol</div>
+                <div class="option"><input type="radio" name="q8" value="b"> Dynamic Host Control Protocol</div>
+                <div class="option"><input type="radio" name="q8" value="c"> Data Host Configuration Protocol</div>
+                <div class="option"><input type="radio" name="q8" value="d"> Data Host Control Protocol</div>
+            </div>
+            <div class="view-explanation" onclick="toggleExplanation('explanation8')">View Explanation</div>
+            <div id="explanation8" class="explanation">
+                DHCP تعني بروتوكول تكوين المضيف الديناميكي، والذي يقوم تلقائيًا بتوزيع تكوينات TCP/IP مثل عناوين IP وأقنعة الشبكة الفرعية.
+            </div>
+            <button class="submit-btn" onclick="checkAnswer('q8', 'a', 'explanation8')">Submit</button>
+        </div>
+        <div class="question-block">
+            <div class="question">9. What is the purpose of DNS?</div>
+            <div class="options">
+                <div class="option"><input type="radio" name="q9" value="a"> To convert digital signals to analog signals</div>
+                <div class="option"><input type="radio" name="q9" value="b"> To resolve friendly names to IP addresses and vice versa</div>
+                <div class="option"><input type="radio" name="q9" value="c"> To manage network resources</div>
+                <div class="option"><input type="radio" name="q9" value="d"> To boost weak signals</div>
+            </div>
+            <div class="view-explanation" onclick="toggleExplanation('explanation9')">View Explanation</div>
+            <div id="explanation9" class="explanation">
+                يقوم نظام أسماء النطاقات (DNS) بحل الأسماء الودية إلى عناوين IP والعكس، إما من خلال خادم DNS أو ملف المضيفين في ويندوز.
+            </div>
+            <button class="submit-btn" onclick="checkAnswer('q9', 'b', 'explanation9')">Submit</button>
+        </div>
+        <div class="question-block">
+            <div class="question">10. What does the term "NAT" stand for?</div>
+            <div class="options">
+                <div class="option"><input type="radio" name="q10" value="a"> Network Address Translation</div>
+                <div class="option"><input type="radio" name="q10" value="b"> Network Access Translation</div>
+                <div class="option"><input type="radio" name="q10" value="c"> Network Address Transfer</div>
+                <div class="option"><input type="radio" name="q10" value="d"> Network Access Transfer</div>
+            </div>
+            <div class="view-explanation" onclick="toggleExplanation('explanation10')">View Explanation</div>
+            <div id="explanation10" class="explanation">
+                NAT تعني ترجمة عناوين الشبكة، وتستخدم في الترجمة بين عناوين IP الخاصة والعامة للوصول إلى الإنترنت.
+            </div>
+            <button class="submit-btn" onclick="checkAnswer('q10', 'a', 'explanation10')">Submit</button>
+        </div>
+        <div class="question-block">
+            <div class="question">11. Which layer of the OSI model does a firewall operate?</div>
+            <div class="options">
+                <div class="option"><input type="radio" name="q11" value="a"> Layer 1</div>
+                <div class="option"><input type="radio" name="q11" value="b"> Layer 2</div>
+                <div class="option"><input type="radio" name="q11" value="c"> Layer 3</div>
+                <div class="option"><input type="radio" name="q11" value="d"> Layer 7</div>
+            </div>
+            <div class="view-explanation" onclick="toggleExplanation('explanation11')">View Explanation</div>
+            <div id="explanation11" class="explanation">
+                يمكن للجدار الناري العمل في طبقات متعددة ولكنه يرتبط أساسًا بالطبقة السابعة (طبقة التطبيق) لتصفية حركة المرور بناءً على قواعد محددة.
+            </div>
+            <button class="submit-btn" onclick="checkAnswer('q11', 'd', 'explanation11')">Submit</button>
+        </div>
+        <div class="question-block">
+            <div class="question">12. What is the main purpose of a proxy server?</div>
+            <div class="options">
+                <div class="option"><input type="radio" name="q12" value="a"> To convert digital signals to analog signals</div>
+                <div class="option"><input type="radio" name="q12" value="b"> To manage network resources</div>
+                <div class="option"><input type="radio" name="q12" value="c"> To act as an intermediary between a user's computer and the internet</div>
+                <div class="option"><input type="radio" name="q12" value="d"> To boost weak signals</div>
+            </div>
+            <div class="view-explanation" onclick="toggleExplanation('explanation12')">View Explanation</div>
+            <div id="explanation12" class="explanation">
+                يعمل خادم الوكيل كوسيط بين جهاز الكمبيوتر الخاص بالمستخدم والإنترنت، ويتحكم ويصفى حركة المرور.
+            </div>
+            <button class="submit-btn" onclick="checkAnswer('q12', 'c', 'explanation12')">Submit</button>
+        </div>
+        <div class="question-block">
+            <div class="question">13. Which of the following is a valid email address?</div>
+            <div class="options">
+                <div class="option"><input type="radio" name="q13" value="a"> user@localhost</div>
+                <div class="option"><input type="radio" name="q13" value="b"> user@.com</div>
+                <div class="option"><input type="radio" name="q13" value="c"> user@domain.com</div>
+                <div class="option"><input type="radio" name="q13" value="d"> @domain.com</div>
+            </div>
+            <div class="view-explanation" onclick="toggleExplanation('explanation13')">View Explanation</div>
+            <div id="explanation13" class="explanation">
+                عنوان البريد الإلكتروني الصحيح يتكون من بادئة ونطاق، مصاغ بشكل صحيح مع رمز @، مثل user@domain.com.
+            </div>
+            <button class="submit-btn" onclick="checkAnswer('q13', 'c', 'explanation13')">Submit</button>
+        </div>
+        <div class="question-block">
+            <div class="question">14. What does the term "PAN" stand for?</div>
+            <div class="options">
+                <div class="option"><input type="radio" name="q14" value="a"> Personal Area Network</div>
+                <div class="option"><input type="radio" name="q14" value="b"> Private Area Network</div>
+                <div class="option"><input type="radio" name="q14" value="c"> Public Area Network</div>
+                <div class="option"><input type="radio" name="q14" value="d"> Protected Area Network</div>
+            </div>
+            <div class="view-explanation" onclick="toggleExplanation('explanation14')">View Explanation</div>
+            <div id="explanation14" class="explanation">
+                PAN تعني شبكة المنطقة الشخصية، والتي تستخدم لتوصيل الأجهزة ضمن نطاق قصير جدًا.
+            </div>
+            <button class="submit-btn" onclick="checkAnswer('q14', 'a', 'explanation14')">Submit</button>
+        </div>
+        <div class="question-block">
+            <div class="question">15. Which type of cable is least susceptible to electrical interference?</div>
+            <div class="options">
+                <div class="option"><input type="radio" name="q15" value="a"> Unshielded Twisted Pair (UTP)</div>
+                <div class="option"><input type="radio" name="q15" value="b"> Coaxial Cable</div>
+                <div class="option"><input type="radio" name="q15" value="c"> Optical Fiber</div>
+                <div class="option"><input type="radio" name="q15" value="d"> Shielded Twisted Pair (STP)</div>
+            </div>
+            <div class="view-explanation" onclick="toggleExplanation('explanation15')">View Explanation</div>
+            <div id="explanation15" class="explanation">
+                الألياف البصرية هي الأقل عرضة للتداخل الكهربائي لأنها تنقل البيانات كضوء بدلاً من الإشارات الكهربائية.
+            </div>
+            <button class="submit-btn" onclick="checkAnswer('q15', 'c', 'explanation15')">Submit</button>
+        </div>
+        <div class="question-block">
+            <div class="question">16. What is the primary function of a repeater?</div>
+            <div class="options">
+                <div class="option"><input type="radio" name="q16" value="a"> To connect different networks</div>
+                <div class="option"><input type="radio" name="q16" value="b"> To convert digital signals to analog signals</div>
+                <div class="option"><input type="radio" name="q16" value="c"> To boost weak signals</div>
+                <div class="option"><input type="radio" name="q16" value="d"> To manage network resources</div>
+            </div>
+            <div class="view-explanation" onclick="toggleExplanation('explanation16')">View Explanation</div>
+            <div id="explanation16" class="explanation">
+                يتم استخدام المُكرّر لتعزيز الإشارات الضعيفة لتمديد نطاق الشبكة.
+            </div>
+            <button class="submit-btn" onclick="checkAnswer('q16', 'c', 'explanation16')">Submit</button>
+        </div>
+        <div class="question-block">
+            <div class="question">17. Which protocol is used to securely transfer files over a network?</div>
+            <div class="options">
+                <div class="option"><input type="radio" name="q17" value="a"> FTP</div>
+                <div class="option"><input type="radio" name="q17" value="b"> SFTP</div>
+                <div class="option"><input type="radio" name="q17" value="c"> HTTP</div>
+                <div class="option"><input type="radio" name="q17" value="d"> SMTP</div>
+            </div>
+            <div class="view-explanation" onclick="toggleExplanation('explanation17')">View Explanation</div>
+            <div id="explanation17" class="explanation">
+                يُستخدم بروتوكول نقل الملفات الآمن (SFTP) لنقل الملفات بشكل آمن عبر الشبكة.
+            </div>
+            <button class="submit-btn" onclick="checkAnswer('q17', 'b', 'explanation17')">Submit</button>
+        </div>
+        <div class="question-block">
+            <div class="question">18. What does the term "WAN" stand for?</div>
+            <div class="options">
+                <div class="option"><input type="radio" name="q18" value="a"> Wide Area Network</div>
+                <div class="option"><input type="radio" name="q18" value="b"> Wireless Area Network</div>
+                <div class="option"><input type="radio" name="q18" value="c"> Wide Access Network</div>
+                <div class="option"><input type="radio" name="q18" value="d"> Wireless Access Network</div>
+            </div>
+            <div class="view-explanation" onclick="toggleExplanation('explanation18')">View Explanation</div>
+            <div id="explanation18" class="explanation">
+                WAN تعني شبكة المنطقة الواسعة، والتي تغطي مساحة جغرافية كبيرة.
+            </div>
+            <button class="submit-btn" onclick="checkAnswer('q18', 'a', 'explanation18')">Submit</button>
+        </div>
+        <div class="question-block">
+            <div class="question">19. Which layer of the OSI model is responsible for end-to-end communication?</div>
+            <div class="options">
+                <div class="option"><input type="radio" name="q19" value="a"> Network Layer</div>
+                <div class="option"><input type="radio" name="q19" value="b"> Transport Layer</div>
+                <div class="option"><input type="radio" name="q19" value="c"> Data Link Layer</div>
+                <div class="option"><input type="radio" name="q19" value="d"> Physical Layer</div>
+            </div>
+            <div class="view-explanation" onclick="toggleExplanation('explanation19')">View Explanation</div>
+            <div id="explanation19" class="explanation">
+                طبقة النقل مسؤولة عن الاتصال من النهاية إلى النهاية والتسليم الخالي من الأخطاء للبيانات.
+            </div>
+            <button class="submit-btn" onclick="checkAnswer('q19', 'b', 'explanation19')">Submit</button>
+        </div>
+        <div class="question-block">
+            <div class="question">20. What is the maximum length of an IPv4 address?</div>
+            <div class="options">
+                <div class="option"><input type="radio" name="q20" value="a"> 8 bits</div>
+                <div class="option"><input type="radio" name="q20" value="b"> 16 bits</div>
+                <div class="option"><input type="radio" name="q20" value="c"> 32 bits</div>
+                <div class="option"><input type="radio" name="q20" value="d"> 64 bits</div>
+            </div>
+            <div class="view-explanation" onclick="toggleExplanation('explanation20')">View Explanation</div>
+            <div id="explanation20" class="explanation">
+                عنوان IPv4 طوله 32 بت.
+            </div>
+            <button class="submit-btn" onclick="checkAnswer('q20', 'c', 'explanation20')">Submit</button>
+        </div>
+        <div class="question-block">
+            <div class="question">21. Which of the following is a private IP address range?</div>
+            <div class="options">
+                <div class="option"><input type="radio" name="q21" value="a"> 10.0.0.0 to 10.255.255.255</div>
+                <div class="option"><input type="radio" name="q21" value="b"> 172.16.0.0 to 172.31.255.255</div>
+                <div class="option"><input type="radio" name="q21" value="c"> 192.168.0.0 to 192.168.255.255</div>
+                <div class="option"><input type="radio" name="q21" value="d"> All of the above</div>
+            </div>
+            <div class="view-explanation" onclick="toggleExplanation('explanation21')">View Explanation</div>
+            <div id="explanation21" class="explanation">
+                جميع نطاقات عناوين IP المذكورة (10.0.0.0 إلى 10.255.255.255، و172.16.0.0 إلى 172.31.255.255، و192.168.0.0 إلى 192.168.255.255) هي عناوين IP خاصة.
+            </div>
+            <button class="submit-btn" onclick="checkAnswer('q21', 'd', 'explanation21')">Submit</button>
+        </div>
+        <div class="question-block">
+            <div class="question">22. What does the term "SSID" stand for?</div>
+            <div class="options">
+                <div class="option"><input type="radio" name="q22" value="a"> Secure Set Identifier</div>
+                <div class="option"><input type="radio" name="q22" value="b"> Service Set Identifier</div>
+                <div class="option"><input type="radio" name="q22" value="c"> System Set Identifier</div>
+                <div class="option"><input type="radio" name="q22" value="d"> Safe Set Identifier</div>
+            </div>
+            <div class="view-explanation" onclick="toggleExplanation('explanation22')">View Explanation</div>
+            <div id="explanation22" class="explanation">
+                SSID تعني معرف مجموعة الخدمات، وهو اسم شبكة لاسلكية.
+            </div>
+            <button class="submit-btn" onclick="checkAnswer('q22', 'b', 'explanation22')">Submit</button>
+        </div>
+        <div class="question-block">
+            <div class="question">23. Which protocol is used for secure web browsing?</div>
+            <div class="options">
+                <div class="option"><input type="radio" name="q23" value="a"> HTTP</div>
+                <div class="option"><input type="radio" name="q23" value="b"> FTP</div>
+                <div class="option"><input type="radio" name="q23" value="c"> HTTPS</div>
+                <div class="option"><input type="radio" name="q23" value="d"> SMTP</div>
+            </div>
+            <div class="view-explanation" onclick="toggleExplanation('explanation23')">View Explanation</div>
+            <div id="explanation23" class="explanation">
+                يُستخدم HTTPS (بروتوكول نقل النص التشعبي الآمن) للتصفح الآمن للويب.
+            </div>
+            <button class="submit-btn" onclick="checkAnswer('q23', 'c', 'explanation23')">Submit</button>
+        </div>
+        <div class="question-block">
+            <div class="question">24. What is the purpose of a gateway in a network?</div>
+            <div class="options">
+                <div class="option"><input type="radio" name="q24" value="a"> To connect different networks using different protocols</div>
+                <div class="option"><input type="radio" name="q24" value="b"> To boost weak signals</div>
+                <div class="option"><input type="radio" name="q24" value="c"> To convert digital signals to analog signals</div>
+                <div class="option"><input type="radio" name="q24" value="d"> To manage network resources</div>
+            </div>
+            <div class="view-explanation" onclick="toggleExplanation('explanation24')">View Explanation</div>
+            <div id="explanation24" class="explanation">
+                يتم استخدام البوابة لتوصيل شبكات مختلفة تستخدم بروتوكولات مختلفة.
+            </div>
+            <button class="submit-btn" onclick="checkAnswer('q24', 'a', 'explanation24')">Submit</button>
+        </div>
+        <div class="question-block">
+            <div class="question">25. Which of the following is NOT a type of network topology?</div>
+            <div class="options">
+                <div class="option"><input type="radio" name="q25" value="a"> Star</div>
+                <div class="option"><input type="radio" name="q25" value="b"> Ring</div>
+                <div class="option"><input type="radio" name="q25" value="c"> Bus</div>
+                <div class="option"><input type="radio" name="q25" value="d"> Square</div>
+            </div>
+            <div class="view-explanation" onclick="toggleExplanation('explanation25')">View Explanation</div>
+            <div id="explanation25" class="explanation">
+                المربع ليس نوعًا معترفًا به من طوبولوجيا الشبكة. الأنواع الشائعة هي النجمية والحلقية والحافلة.
+            </div>
+            <button class="submit-btn" onclick="checkAnswer('q25', 'd', 'explanation25')">Submit</button>
+        </div>
+        <div class="question-block">
+            <div class="question">26. What does the term "MAC address" stand for?</div>
+            <div class="options">
+                <div class="option"><input type="radio" name="q26" value="a"> Media Access Control address</div>
+                <div class="option"><input type="radio" name="q26" value="b"> Machine Access Code address</div>
+                <div class="option"><input type="radio" name="q26" value="c"> Media Access Code address</div>
+                <div class="option"><input type="radio" name="q26" value="d"> Machine Access Control address</div>
+            </div>
+            <div class="view-explanation" onclick="toggleExplanation('explanation26')">View Explanation</div>
+            <div id="explanation26" class="explanation">
+                MAC تعني عنوان التحكم في الوصول إلى الوسائط، وهو معرف فريد مُخصص لواجهات الشبكة.
+            </div>
+            <button class="submit-btn" onclick="checkAnswer('q26', 'a', 'explanation26')">Submit</button>
+        </div>
+        <div class="question-block">
+            <div class="question">27. Which layer of the OSI model does a network switch operate?</div>
+            <div class="options">
+                <div class="option"><input type="radio" name="q27" value="a"> Layer 1</div>
+                <div class="option"><input type="radio" name="q27" value="b"> Layer 2</div>
+                <div class="option"><input type="radio" name="q27" value="c"> Layer 3</div>
+                <div class="option"><input type="radio" name="q27" value="d"> Layer 4</div>
+            </div>
+            <div class="view-explanation" onclick="toggleExplanation('explanation27')">View Explanation</div>
+            <div id="explanation27" class="explanation">
+                يعمل مبدل الشبكة في الطبقة الثانية (طبقة ربط البيانات) من نموذج OSI.
+            </div>
+            <button class="submit-btn" onclick="checkAnswer('q27', 'b', 'explanation27')">Submit</button>
+        </div>
+        <div class="question-block">
+            <div class="question">28. What is the primary purpose of the DNS server?</div>
+            <div class="options">
+                <div class="option"><input type="radio" name="q28" value="a"> To convert digital signals to analog signals</div>
+                <div class="option"><input type="radio" name="q28" value="b"> To resolve domain names to IP addresses</div>
+                <div class="option"><input type="radio" name="q28" value="c"> To manage network resources</div>
+                <div class="option"><input type="radio" name="q28" value="d"> To boost weak signals</div>
+            </div>
+            <div class="view-explanation" onclick="toggleExplanation('explanation28')">View Explanation</div>
+            <div id="explanation28" class="explanation">
+                الغرض الأساسي من خادم DNS هو حل أسماء النطاقات إلى عناوين IP.
+            </div>
+            <button class="submit-btn" onclick="checkAnswer('q28', 'b', 'explanation28')">Submit</button>
+        </div>
+        <div class="question-block">
+            <div class="question">29. Which of the following is a valid IPv6 address?</div>
+            <div class="options">
+                <div class="option"><input type="radio" name="q29" value="a"> 192.168.1.1</div>
+                <div class="option"><input type="radio" name="q29" value="b"> 2001:0db8:85a3:0000:0000:8a2e:0370:7334</div>
+                <div class="option"><input type="radio" name="q29" value="c"> 256.256.256.256</div>
+                <div class="option"><input type="radio" name="q29" value="d"> 10.0.0.1</div>
+            </div>
+            <div class="view-explanation" onclick="toggleExplanation('explanation29')">View Explanation</div>
+            <div id="explanation29" class="explanation">
+                يتم تمثيل عنوان IPv6 الصحيح بتنسيق سداسي عشري، مثل 2001:0db8:85a3:0000:0000:8a2e:0370:7334.
+            </div>
+            <button class="submit-btn" onclick="checkAnswer('q29', 'b', 'explanation29')">Submit</button>
+        </div>
+        <div class="question-block">
+            <div class="question">30. What does the term "VPN" stand for?</div>
+            <div class="options">
+                <div class="option"><input type="radio" name="q30" value="a"> Virtual Private Network</div>
+                <div class="option"><input type="radio" name="q30" value="b"> Very Private Network</div>
+                <div class="option"><input type="radio" name="q30" value="c"> Virtual Public Network</div>
+                <div class="option"><input type="radio" name="q30" value="d"> Very Public Network</div>
+            </div>
+            <div class="view-explanation" onclick="toggleExplanation('explanation30')">View Explanation</div>
+            <div id="explanation30" class="explanation">
+                VPN تعني الشبكة الخاصة الافتراضية، والتي تمد شبكة خاصة عبر شبكة عامة.
+            </div>
+            <button class="submit-btn" onclick="checkAnswer('q30', 'a', 'explanation30')">Submit</button>
+        </div>
+        <div class="question-block">
+            <div class="question">31. Which protocol is used to send emails?</div>
+            <div class="options">
+                <div class="option"><input type="radio" name="q31" value="a"> FTP</div>
+                <div class="option"><input type="radio" name="q31" value="b"> SMTP</div>
+                <div class="option"><input type="radio" name="q31" value="c"> HTTP</div>
+                <div class="option"><input type="radio" name="q31" value="d"> DNS</div>
+            </div>
+            <div class="view-explanation" onclick="toggleExplanation('explanation31')">View Explanation</div>
+            <div id="explanation31" class="explanation">
+                يُستخدم بروتوكول نقل البريد البسيط (SMTP) لإرسال رسائل البريد الإلكتروني.
+            </div>
+            <button class="submit-btn" onclick="checkAnswer('q31', 'b', 'explanation31')">Submit</button>
+        </div>
+        <div class="question-block">
+            <div class="question">32. What is the purpose of a subnet mask?</div>
+            <div class="options">
+                <div class="option"><input type="radio" name="q32" value="a"> To convert digital signals to analog signals</div>
+                <div class="option"><input type="radio" name="q32" value="b"> To divide an IP address into network and host portions</div>
+                <div class="option"><input type="radio" name="q32" value="c"> To manage network resources</div>
+                <div class="option"><input type="radio" name="q32" value="d"> To boost weak signals</div>
+            </div>
+            <div class="view-explanation" onclick="toggleExplanation('explanation32')">View Explanation</div>
+            <div id="explanation32" class="explanation">
+                يتم استخدام قناع الشبكة الفرعية لتقسيم عنوان IP إلى أجزاء الشبكة والمضيف.
+            </div>
+            <button class="submit-btn" onclick="checkAnswer('q32', 'b', 'explanation32')">Submit</button>
+        </div>
+        <div class="question-block">
+            <div class="question">33. Which of the following is a characteristic of a router?</div>
+            <div class="options">
+                <div class="option"><input type="radio" name="q33" value="a"> Operates at Layer 2 of the OSI model</div>
+                <div class="option"><input type="radio" name="q33" value="b"> Connects devices within the same network</div>
+                <div class="option"><input type="radio" name="q33" value="c"> Understands IP and MAC addresses</div>
+                <div class="option"><input type="radio" name="q33" value="d"> Converts digital signals to analog signals</div>
+            </div>
+            <div class="view-explanation" onclick="toggleExplanation('explanation33')">View Explanation</div>
+            <div id="explanation33" class="explanation">
+                يعمل الموجه في الطبقة الثالثة من نموذج OSI ويفهم عناوين IP و MAC.
+            </div>
+            <button class="submit-btn" onclick="checkAnswer('q33', 'c', 'explanation33')">Submit</button>
+        </div>
+        <div class="question-block">
+            <div class="question">34. What does the term "WEP" stand for in wireless security?</div>
+            <div class="options">
+                <div class="option"><input type="radio" name="q34" value="a"> Wired Equivalent Privacy</div>
+                <div class="option"><input type="radio" name="q34" value="b"> Wireless Encryption Protocol</div>
+                <div class="option"><input type="radio" name="q34" value="c"> Wired Encryption Protocol</div>
+                <div class="option"><input type="radio" name="q34" value="d"> Wireless Equivalent Privacy</div>
+            </div>
+            <div class="view-explanation" onclick="toggleExplanation('explanation34')">View Explanation</div>
+            <div id="explanation34" class="explanation">
+                WEP تعني خصوصية مكافئة للسلكية، وهو بروتوكول أمني للشبكات اللاسلكية.
+            </div>
+            <button class="submit-btn" onclick="checkAnswer('q34', 'a', 'explanation34')">Submit</button>
+        </div>
+        <div class="question-block">
+            <div class="question">35. Which of the following is a type of wireless communication?</div>
+            <div class="options">
+                <div class="option"><input type="radio" name="q35" value="a"> Wi-Fi</div>
+                <div class="option"><input type="radio" name="q35" value="b"> Ethernet</div>
+                <div class="option"><input type="radio" name="q35" value="c"> Fiber Optic</div>
+                <div class="option"><input type="radio" name="q35" value="d"> Coaxial Cable</div>
+            </div>
+            <div class="view-explanation" onclick="toggleExplanation('explanation35')">View Explanation</div>
+            <div id="explanation35" class="explanation">
+                Wi-Fi هو نوع من الاتصالات اللاسلكية.
+            </div>
+            <button class="submit-btn" onclick="checkAnswer('q35', 'a', 'explanation35')">Submit</button>
+        </div>
+        <div class="question-block">
+            <div class="question">36. What is the primary function of a NIC?</div>
+            <div class="options">
+                <div class="option"><input type="radio" name="q36" value="a"> To convert digital signals to analog signals</div>
+                <div class="option"><input type="radio" name="q36" value="b"> To connect a computer to a network</div>
+                <div class="option"><input type="radio" name="q36" value="c"> To manage network resources</div>
+                <div class="option"><input type="radio" name="q36" value="d"> To boost weak signals</div>
+            </div>
+            <div class="view-explanation" onclick="toggleExplanation('explanation36')">View Explanation</div>
+            <div id="explanation36" class="explanation">
+                يتم استخدام بطاقة واجهة الشبكة (NIC) لتوصيل جهاز كمبيوتر بشبكة.
+            </div>
+            <button class="submit-btn" onclick="checkAnswer('q36', 'b', 'explanation36')">Submit</button>
+        </div>
+        <div class="question-block">
+            <div class="question">37. Which of the following is a characteristic of a hub?</div>
+            <div class="options">
+                <div class="option"><input type="radio" name="q37" value="a"> Operates at Layer 3 of the OSI model</div>
+                <div class="option"><input type="radio" name="q37" value="b"> Understands IP and MAC addresses</div>
+                <div class="option"><input type="radio" name="q37" value="c"> Connects devices within the same network without understanding IP or MAC addresses</div>
+                <div class="option"><input type="radio" name="q37" value="d"> Converts digital signals to analog signals</div>
+            </div>
+            <div class="view-explanation" onclick="toggleExplanation('explanation37')">View Explanation</div>
+            <div id="explanation37" class="explanation">
+                يعمل المحور في الطبقة الأولى من نموذج OSI ويصل الأجهزة داخل نفس الشبكة دون فهم عناوين IP أو MAC.
+            </div>
+            <button class="submit-btn" onclick="checkAnswer('q37', 'c', 'explanation37')">Submit</button>
+        </div>
+        <div class="question-block">
+            <div class="question">38. What does the term "HTTP" stand for?</div>
+            <div class="options">
+                <div class="option"><input type="radio" name="q38" value="a"> HyperText Transfer Protocol</div>
+                <div class="option"><input type="radio" name="q38" value="b"> HyperText Transmission Protocol</div>
+                <div class="option"><input type="radio" name="q38" value="c"> HyperText Transfer Process</div>
+                <div class="option"><input type="radio" name="q38" value="d"> HyperText Transmission Process</div>
+            </div>
+            <div class="view-explanation" onclick="toggleExplanation('explanation38')">View Explanation</div>
+            <div id="explanation38" class="explanation">
+                HTTP تعني بروتوكول نقل النص التشعبي، والذي يستخدم لنقل صفحات الويب.
+            </div>
+            <button class="submit-btn" onclick="checkAnswer('q38', 'a', 'explanation38')">Submit</button>
+        </div>
+        <div class="question-block">
+            <div class="question">39. Which of the following is a characteristic of a full duplex communication?</div>
+            <div class="options">
+                <div class="option"><input type="radio" name="q39" value="a"> Data can be transmitted in only one direction</div>
+                <div class="option"><input type="radio" name="q39" value="b"> Data can be transmitted in both directions but not simultaneously</div>
+                <div class="option"><input type="radio" name="q39" value="c"> Data can be transmitted in both directions simultaneously</div>
+                <div class="option"><input type="radio" name="q39" value="d"> Data can be transmitted in neither direction</div>
+            </div>
+            <div class="view-explanation" onclick="toggleExplanation('explanation39')">View Explanation</div>
+            <div id="explanation39" class="explanation">
+                يسمح الاتصال الثنائي الكامل بنقل البيانات في كلا الاتجاهين في نفس الوقت.
+            </div>
+            <button class="submit-btn" onclick="checkAnswer('q39', 'c', 'explanation39')">Submit</button>
+        </div>
+        <div class="question-block">
+            <div class="question">40. What is the purpose of the "ping" command?</div>
+            <div class="options">
+                <div class="option"><input type="radio" name="q40" value="a"> To convert digital signals to analog signals</div>
+                <div class="option"><input type="radio" name="q40" value="b"> To test the connectivity between two devices</div>
+                <div class="option"><input type="radio" name="q40" value="c"> To manage network resources</div>
+                <div class="option"><input type="radio" name="q40" value="d"> To boost weak signals</div>
+            </div>
+            <div class="view-explanation" onclick="toggleExplanation('explanation40')">View Explanation</div>
+            <div id="explanation40" class="explanation">
+                يتم استخدام الأمر "ping" لاختبار الاتصال بين جهازين عن طريق إرسال الحزم وقياس الاستجابة.
+            </div>
+            <button class="submit-btn" onclick="checkAnswer('q40', 'b', 'explanation40')">Submit</button>
+        </div>
+        <div class="question-block">
+            <div class="question">41. Which command is used to create a new directory in Linux?</div>
+            <div class="options">
+                <div class="option"><input type="radio" name="q41" value="a"> rmdir</div>
+                <div class="option"><input type="radio" name="q41" value="b"> mkdir</div>
+                <div class="option"><input type="radio" name="q41" value="c"> cd</div>
+                <div class="option"><input type="radio" name="q41" value="d"> ls</div>
+            </div>
+            <div class="view-explanation" onclick="toggleExplanation('explanation41')">View Explanation</div>
+            <div id="explanation41" class="explanation">
+                يُستخدم الأمر `mkdir` لإنشاء دليل جديد في لينكس.
+            </div>
+            <button class="submit-btn" onclick="checkAnswer('q41', 'b', 'explanation41')">Submit</button>
+        </div>
+        <div class="question-block">
+            <div class="question">42. What is the purpose of the `chmod` command in Linux?</div>
+            <div class="options">
+                <div class="option"><input type="radio" name="q42" value="a"> To change the owner of a file</div>
+                <div class="option"><input type="radio" name="q42" value="b"> To change the permissions of a file</div>
+                <div class="option"><input type="radio" name="q42" value="c"> To create a new file</div>
+                <div class="option"><input type="radio" name="q42" value="d"> To delete a file</div>
+            </div>
+            <div class="view-explanation" onclick="toggleExplanation('explanation42')">View Explanation</div>
+            <div id="explanation42" class="explanation">
+                يُستخدم الأمر `chmod` لتغيير أذونات الملفات في لينكس.
+            </div>
+            <button class="submit-btn" onclick="checkAnswer('q42', 'b', 'explanation42')">Submit</button>
+        </div>
+        <div class="question-block">
+            <div class="question">43. Which command is used to display the current directory in Linux?</div>
+            <div class="options">
+                <div class="option"><input type="radio" name="q43" value="a"> cd</div>
+                <div class="option"><input type="radio" name="q43" value="b"> pwd</div>
+                <div class="option"><input type="radio" name="q43" value="c"> ls</div>
+                <div class="option"><input type="radio" name="q43" value="d"> mkdir</div>
+            </div>
+            <div class="view-explanation" onclick="toggleExplanation('explanation43')">View Explanation</div>
+            <div id="explanation43" class="explanation">
+                يُستخدم الأمر `pwd` لعرض الدليل الحالي في لينكس.
+            </div>
+            <button class="submit-btn" onclick="checkAnswer('q43', 'b', 'explanation43')">Submit</button>
+        </div>
+        <div class="question-block">
+            <div class="question">44. What does the `grep` command do in Linux?</div>
+            <div class="options">
+                <div class="option"><input type="radio" name="q44" value="a"> Creates a new file</div>
+                <div class="option"><input type="radio" name="q44" value="b"> Searches for a specific pattern in a file</div>
+                <div class="option"><input type="radio" name="q44" value="c"> Deletes a file</div>
+                <div class="option"><input type="radio" name="q44" value="d"> Changes file permissions</div>
+            </div>
+            <div class="view-explanation" onclick="toggleExplanation('explanation44')">View Explanation</div>
+            <div id="explanation44" class="explanation">
+                يُستخدم الأمر `grep` للبحث عن نمط معين في ملف في لينكس.
+            </div>
+            <button class="submit-btn" onclick="checkAnswer('q44', 'b', 'explanation44')">Submit</button>
+        </div>
+        <div class="question-block">
+            <div class="question">45. Which command is used to display the contents of a file in Linux?</div>
+            <div class="options">
+                <div class="option"><input type="radio" name="q45" value="a"> touch</div>
+                <div class="option"><input type="radio" name="q45" value="b"> cat</div>
+                <div class="option"><input type="radio" name="q45" value="c"> mv</div>
+                <div class="option"><input type="radio" name="q45" value="d"> cp</div>
+            </div>
+            <div class="view-explanation" onclick="toggleExplanation('explanation45')">View Explanation</div>
+            <div id="explanation45" class="explanation">
+                يُستخدم الأمر `cat` لعرض محتويات ملف في لينكس.
+            </div>
+            <button class="submit-btn" onclick="checkAnswer('q45', 'b', 'explanation45')">Submit</button>
+        </div>
+        <div class="question-block">
+            <div class="question">46. What is the purpose of the `ifconfig` command in Linux?</div>
+            <div class="options">
+                <div class="option"><input type="radio" name="q46" value="a"> To configure network interfaces</div>
+                <div class="option"><input type="radio" name="q46" value="b"> To create a new user</div>
+                <div class="option"><input type="radio" name="q46" value="c"> To delete a file</div>
+                <div class="option"><input type="radio" name="q46" value="d"> To change file permissions</div>
+            </div>
+            <div class="view-explanation" onclick="toggleExplanation('explanation46')">View Explanation</div>
+            <div id="explanation46" class="explanation">
+                يُستخدم الأمر `ifconfig` لتكوين واجهات الشبكة في لينكس.
+            </div>
+            <button class="submit-btn" onclick="checkAnswer('q46', 'a', 'explanation46')">Submit</button>
+        </div>
+        <div class="question-block">
+            <div class="question">47. Which command is used to stop a service in Linux?</div>
+            <div class="options">
+                <div class="option"><input type="radio" name="q47" value="a"> sudo systemctl start servicename</div>
+                <div class="option"><input type="radio" name="q47" value="b"> sudo systemctl stop servicename</div>
+                <div class="option"><input type="radio" name="q47" value="c"> sudo systemctl status servicename</div>
+                <div class="option"><input type="radio" name="q47" value="d"> sudo systemctl restart servicename</div>
+            </div>
+            <div class="view-explanation" onclick="toggleExplanation('explanation47')">View Explanation</div>
+            <div id="explanation47" class="explanation">
+                يُستخدم الأمر `sudo systemctl stop servicename` لإيقاف خدمة في لينكس.
+            </div>
+            <button class="submit-btn" onclick="checkAnswer('q47', 'b', 'explanation47')">Submit</button>
+        </div>
+        <div class="question-block">
+            <div class="question">48. What is the default file system type in Linux?</div>
+            <div class="options">
+                <div class="option"><input type="radio" name="q48" value="a"> NTFS</div>
+                <div class="option"><input type="radio" name="q48" value="b"> FAT32</div>
+                <div class="option"><input type="radio" name="q48" value="c"> EXT4</div>
+                <div class="option"><input type="radio" name="q48" value="d"> HFS</div>
+            </div>
+            <div class="view-explanation" onclick="toggleExplanation('explanation48')">View Explanation</div>
+            <div id="explanation48" class="explanation">
+                نوع نظام الملفات الافتراضي في لينكس هو EXT4.
+            </div>
+            <button class="submit-btn" onclick="checkAnswer('q48', 'c', 'explanation48')">Submit</button>
+        </div>
+        <div class="question-block">
+            <div class="question">49. Which command is used to change the owner of a file in Linux?</div>
+            <div class="options">
+                <div class="option"><input type="radio" name="q49" value="a"> chmod</div>
+                <div class="option"><input type="radio" name="q49" value="b"> chown</div>
+                <div class="option"><input type="radio" name="q49" value="c"> chgrp</div>
+                <div class="option"><input type="radio" name="q49" value="d"> chfile</div>
+            </div>
+            <div class="view-explanation" onclick="toggleExplanation('explanation49')">View Explanation</div>
+            <div id="explanation49" class="explanation">
+                يُستخدم الأمر `chown` لتغيير مالك ملف في لينكس.
+            </div>
+            <button class="submit-btn" onclick="checkAnswer('q49', 'b', 'explanation49')">Submit</button>
+        </div>
+        <div class="question-block">
+            <div class="question">50. Which command is used to check the disk space usage in Linux?</div>
+            <div class="options">
+                <div class="option"><input type="radio" name="q50" value="a"> du</div>
+                <div class="option"><input type="radio" name="q50" value="b"> df</div>
+                <div class="option"><input type="radio" name="q50" value="c"> free</div>
+                <div class="option"><input type="radio" name="q50" value="d"> top</div>
+            </div>
+            <div class="view-explanation" onclick="toggleExplanation('explanation50')">View Explanation</div>
+            <div id="explanation50" class="explanation">
+                يُستخدم الأمر `df` للتحقق من استخدام مساحة القرص في لينكس.
+            </div>
+            <button class="submit-btn" onclick="checkAnswer('q50', 'b', 'explanation50')">Submit</button>
+        </div>
+        <div class="question-block">
+            <div class="question">51. What does the `ps` command do in Linux?</div>
+            <div class="options">
+                <div class="option"><input type="radio" name="q51" value="a"> Displays the current directory</div>
+                <div class="option"><input type="radio" name="q51" value="b"> Lists running processes</div>
+                <div class="option"><input type="radio" name="q51" value="c"> Shows disk usage</div>
+                <div class="option"><input type="radio" name="q51" value="d"> Changes file permissions</div>
+            </div>
+            <div class="view-explanation" onclick="toggleExplanation('explanation51')">View Explanation</div>
+            <div id="explanation51" class="explanation">
+                يُستخدم الأمر `ps` لإدراج العمليات الجارية في لينكس.
+            </div>
+            <button class="submit-btn" onclick="checkAnswer('q51', 'b', 'explanation51')">Submit</button>
+        </div>
+        <div class="question-block">
+            <div class="question">52. Which command is used to terminate a process in Linux?</div>
+            <div class="options">
+                <div class="option"><input type="radio" name="q52" value="a"> kill</div>
+                <div class="option"><input type="radio" name="q52" value="b"> stop</div>
+                <div class="option"><input type="radio" name="q52" value="c"> end</div>
+                <div class="option"><input type="radio" name="q52" value="d"> terminate</div>
+            </div>
+            <div class="view-explanation" onclick="toggleExplanation('explanation52')">View Explanation</div>
+            <div id="explanation52" class="explanation">
+                يُستخدم الأمر `kill` لإنهاء عملية في لينكس.
+            </div>
+            <button class="submit-btn" onclick="checkAnswer('q52', 'a', 'explanation52')">Submit</button>
+        </div>
+        <div class="question-block">
+            <div class="question">53. Which command is used to create a new user in Linux?</div>
+            <div class="options">
+                <div class="option"><input type="radio" name="q53" value="a"> adduser</div>
+                <div class="option"><input type="radio" name="q53" value="b"> newuser</div>
+                <div class="option"><input type="radio" name="q53" value="c"> createuser</div>
+                <div class="option"><input type="radio" name="q53" value="d"> useradd</div>
+            </div>
+            <div class="view-explanation" onclick="toggleExplanation('explanation53')">View Explanation</div>
+            <div id="explanation53" class="explanation">
+                يُستخدم الأمر `useradd` لإنشاء مستخدم جديد في لينكس.
+            </div>
+            <button class="submit-btn" onclick="checkAnswer('q53', 'd', 'explanation53')">Submit</button>
+        </div>
+        <div class="question-block">
+            <div class="question">54. Which command is used to switch to the root user in Linux?</div>
+            <div class="options">
+                <div class="option"><input type="radio" name="q54" value="a"> root</div>
+                <div class="option"><input type="radio" name="q54" value="b"> su</div>
+                <div class="option"><input type="radio" name="q54" value="c"> sudo</div>
+                <div class="option"><input type="radio" name="q54" value="d"> admin</div>
+            </div>
+            <div class="view-explanation" onclick="toggleExplanation('explanation54')">View Explanation</div>
+            <div id="explanation54" class="explanation">
+                يُستخدم الأمر `su` للتبديل إلى المستخدم الجذر (root) في لينكس.
+            </div>
+            <button class="submit-btn" onclick="checkAnswer('q54', 'b', 'explanation54')">Submit</button>
+        </div>
+        <div class="question-block">
+            <div class="question">55. Which command is used to install a package in Debian-based Linux distributions?</div>
+            <div class="options">
+                <div class="option"><input type="radio" name="q55" value="a"> yum install</div>
+                <div class="option"><input type="radio" name="q55" value="b"> apt-get install</div>
+                <div class="option"><input type="radio" name="q55" value="c"> rpm install</div>
+                <div class="option"><input type="radio" name="q55" value="d"> dnf install</div>
+            </div>
+            <div class="view-explanation" onclick="toggleExplanation('explanation55')">View Explanation</div>
+            <div id="explanation55" class="explanation">
+                يُستخدم الأمر `apt-get install` لتثبيت حزمة في توزيعات لينكس المستندة إلى دبيان.
+            </div>
+            <button class="submit-btn" onclick="checkAnswer('q55', 'b', 'explanation55')">Submit</button>
+        </div>
+        <div class="question-block">
+            <div class="question">56. Which command is used to check the network connectivity to a remote host in Linux?</div>
+            <div class="options">
+                <div class="option"><input type="radio" name="q56" value="a"> traceroute</div>
+                <div class="option"><input type="radio" name="q56" value="b"> netstat</div>
+                <div class="option"><input type="radio" name="q56" value="c"> ping</div>
+                <div class="option"><input type="radio" name="q56" value="d"> ifconfig</div>
+            </div>
+            <div class="view-explanation" onclick="toggleExplanation('explanation56')">View Explanation</div>
+            <div id="explanation56" class="explanation">
+                يُستخدم الأمر `ping` للتحقق من اتصال الشبكة إلى مضيف بعيد في لينكس.
+            </div>
+            <button class="submit-btn" onclick="checkAnswer('q56', 'c', 'explanation56')">Submit</button>
+        </div>
+        <div class="question-block">
+            <div class="question">57. Which command is used to display the IP address configuration in Linux?</div>
+            <div class="options">
+                <div class="option"><input type="radio" name="q57" value="a"> ipconfig</div>
+                <div class="option"><input type="radio" name="q57" value="b"> ifconfig</div>
+                <div class="option"><input type="radio" name="q57" value="c"> netstat</div>
+                <div class="option"><input type="radio" name="q57" value="d"> ip addr</div>
+            </div>
+            <div class="view-explanation" onclick="toggleExplanation('explanation57')">View Explanation</div>
+            <div id="explanation57" class="explanation">
+                يُستخدم الأمر `ip addr` لعرض تكوين عنوان IP في لينكس.
+            </div>
+            <button class="submit-btn" onclick="checkAnswer('q57', 'd', 'explanation57')">Submit</button>
+        </div>
+        <div class="question-block">
+            <div class="question">58. Which command is used to search for files in Linux?</div>
+            <div class="options">
+                <div class="option"><input type="radio" name="q58" value="a"> grep</div>
+                <div class="option"><input type="radio" name="q58" value="b"> find</div>
+                <div class="option"><input type="radio" name="q58" value="c"> locate</div>
+                <div class="option"><input type="radio" name="q58" value="d"> search</div>
+            </div>
+            <div class="view-explanation" onclick="toggleExplanation('explanation58')">View Explanation</div>
+            <div id="explanation58" class="explanation">
+                يُستخدم الأمر `find` للبحث عن الملفات في لينكس.
+            </div>
+            <button class="submit-btn" onclick="checkAnswer('q58', 'b', 'explanation58')">Submit</button>
+        </div>
+    </div>
+
+    <script>
+        function toggleExplanation(explanationId) {
+            const explanation = document.getElementById(explanationId);
+            if (explanation.style.display === 'none') {
+                explanation.style.display = 'block';
+            } else {
+                explanation.style.display = 'none';
+            }
+        }
+
+        function checkAnswer(questionName, correctAnswer, explanationId) {
+            const selectedAnswer = document.querySelector(`input[name="${questionName}"]:checked`);
+            const explanation = document.getElementById(explanationId);
+            explanation.style.display = 'block';
+
+            const options = document.querySelectorAll(`input[name="${questionName}"]`);
+            options.forEach(option => {
+                const label = option.parentElement;
+                if (option.value === correctAnswer) {
+                    label.classList.add('correct');
+                    label.classList.remove('incorrect');
+                } else if (option === selectedAnswer) {
+                    label.classList.add('incorrect');
+                    label.classList.remove('correct');
+                } else {
+                    label.classList.remove('correct', 'incorrect');
+                }
+            });
+        }
+    </script>
+</body>
+</html>
