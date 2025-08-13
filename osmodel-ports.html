@@ -1,0 +1,1133 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>امتحان الشبكات: OSI Model & Protocols & Ports</title>
+    <style>
+        :root {
+            --dark-bg: #121212;
+            --dark-card: #1e1e1e;
+            --dark-text: #e0e0e0;
+            --primary: #0078d4;
+            --correct: #2e7d32;
+            --incorrect: #c62828;
+            --border: #333;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--dark-bg);
+            color: var(--dark-text);
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: var(--primary);
+            color: white;
+            text-align: center;
+            padding: 15px;
+            font-size: 24px;
+            font-weight: bold;
+        }
+        .container {
+            max-width: 900px;
+            margin: 20px auto;
+            padding: 0 20px;
+        }
+        .score-box {
+            background-color: var(--dark-card);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 15px;
+            margin: 10px 0;
+            text-align: center;
+            font-size: 18px;
+            font-weight: bold;
+        }
+        .section-title {
+            background-color: rgba(0, 120, 212, 0.2);
+            color: var(--primary);
+            padding: 10px;
+            border-radius: 5px;
+            margin: 20px 0 10px 0;
+            font-weight: bold;
+            text-align: center;
+        }
+        .question-block {
+            background-color: var(--dark-card);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 15px;
+            margin: 15px 0;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+        }
+        .question {
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: var(--primary);
+        }
+        .options {
+            margin: 10px 0;
+        }
+        .option {
+            margin: 8px 0;
+            padding: 8px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.2s;
+            background-color: rgba(255,255,255,0.05);
+        }
+        .option:hover {
+            background-color: rgba(0, 120, 212, 0.1);
+        }
+        .view-explanation {
+            color: var(--primary);
+            cursor: pointer;
+            margin: 10px 0;
+            font-weight: bold;
+            display: inline-block;
+        }
+        .explanation {
+            display: none;
+            background-color: rgba(0, 120, 212, 0.1);
+            padding: 10px;
+            border-radius: 5px;
+            margin: 10px 0;
+            border-left: 4px solid var(--primary);
+        }
+        .submit-btn {
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+        .submit-btn:hover {
+            background-color: #005a9e;
+        }
+        .correct {
+            background-color: rgba(46, 125, 50, 0.2) !important;
+            color: var(--correct);
+            border: 1px solid rgba(46, 125, 50, 0.5);
+        }
+        .incorrect {
+            background-color: rgba(198, 40, 40, 0.2) !important;
+            color: var(--incorrect);
+            border: 1px solid rgba(198, 40, 40, 0.5);
+        }
+        .progress-bar {
+            height: 10px;
+            background-color: var(--border);
+            border-radius: 5px;
+            margin: 20px 0;
+            overflow: hidden;
+        }
+        .progress {
+            height: 100%;
+            background-color: var(--primary);
+            width: 0%;
+            transition: width 0.3s;
+        }
+        footer {
+            text-align: center;
+            margin: 20px 0;
+            color: #888;
+        }
+        .nav-bar {
+            background-color: var(--dark-card);
+            padding: 10px;
+            border-bottom: 1px solid var(--border);
+            margin-bottom: 20px;
+        }
+        .nav-bar a {
+            margin: 0 10px;
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        امتحان الشبكات: OSI Model & Protocols & Ports
+    </header>
+    <div class="score-box">
+        الأسكور: <span id="score">0</span> /
+        الأخطاء: <span id="mistakes">0</span>
+    </div>
+    <div class="nav-bar">
+        <a href="#osi">موديل OSI</a>
+        <a href="#ports">المنافذ والبروتوكولات</a>
+        <a href="#ip-classes">فئات الـ IP</a>
+    </div>
+    <div class="container">
+        <div class="progress-bar">
+            <div class="progress" id="progress"></div>
+        </div>
+
+        <!-- قسم OSI Model -->
+        <div id="osi" class="section-title">موديل OSI</div>
+        <div class="question-block">
+            <div class="question">Q1: Which OSI layer is responsible for data encryption?</div>
+            <div class="options">
+                <div class="option"><input type="radio" name="q1" value="a"> A) Network</div>
+                <div class="option"><input type="radio" name="q1" value="b"> B) Presentation</div>
+                <div class="option"><input type="radio" name="q1" value="c"> C) Session</div>
+                <div class="option"><input type="radio" name="q1" value="d"> D) Application</div>
+            </div>
+            <div class="view-explanation" onclick="toggleExplanation('explanation1')">عرض الشرح</div>
+            <div id="explanation1" class="explanation">
+                الـ Presentation Layer هي اللي بتعمل Encryption و Encoding/Decoding
+            </div>
+            <button class="submit-btn" onclick="checkAnswer('q1', 'b', 'explanation1')">Submit</button>
+        </div>
+        <!-- Q2 -->
+        <div class="question-block">
+            <div class="question">Q2: At which OSI layer does TCP operate?</div>
+            <div class="options">
+                <div class="option"><input type="radio" name="q2" value="a"> A) Network</div>
+                <div class="option"><input type="radio" name="q2" value="b"> B) Transport</div>
+                <div class="option"><input type="radio" name="q2" value="c"> C) Session</div>
+                <div class="option"><input type="radio" name="q2" value="d"> D) Data Link</div>
+            </div>
+            <div class="view-explanation" onclick="toggleExplanation('explanation2')">عرض الشرح</div>
+            <div id="explanation2" class="explanation">
+                TCP و UDP شغالين في الـ Transport Layer
+            </div>
+            <button class="submit-btn" onclick="checkAnswer('q2', 'b', 'explanation2')">Submit</button>
+        </div>
+        <!-- Q3 -->
+        <div class="question-block">
+            <div class="question">Q3: Which OSI layer handles MAC addresses?</div>
+            <div class="options">
+                <div class="option"><input type="radio" name="q3" value="a"> A) Data Link</div>
+                <div class="option"><input type="radio" name="q3" value="b"> B) Physical</div>
+                <div class="option"><input type="radio" name="q3" value="c"> C) Network</div>
+                <div class="option"><input type="radio" name="q3" value="d"> D) Application</div>
+            </div>
+            <div class="view-explanation" onclick="toggleExplanation('explanation3')">عرض الشرح</div>
+            <div id="explanation3" class="explanation">
+                MAC Address بيكون في الـ Data Link Layer
+            </div>
+            <button class="submit-btn" onclick="checkAnswer('q3', 'a', 'explanation3')">Submit</button>
+        </div>
+        <!-- Q4 -->
+        <div class="question-block">
+            <div class="question">Q4: Where does IP addressing occur in OSI model?</div>
+            <div class="options">
+                <div class="option"><input type="radio" name="q4" value="a"> A) Data Link</div>
+                <div class="option"><input type="radio" name="q4" value="b"> B) Physical</div>
+                <div class="option"><input type="radio" name="q4" value="c"> C) Network</div>
+                <div class="option"><input type="radio" name="q4" value="d"> D) Transport</div>
+            </div>
+            <div class="view-explanation" onclick="toggleExplanation('explanation4')">عرض الشرح</div>
+            <div id="explanation4" class="explanation">
+                الـ IP Address موجود في Network Layer
+            </div>
+            <button class="submit-btn" onclick="checkAnswer('q4', 'c', 'explanation4')">Submit</button>
+        </div>
+        <!-- Q5 -->
+        <div class="question-block">
+            <div class="question">Q5: Which OSI layer is responsible for establishing and terminating sessions?</div>
+            <div class="options">
+                <div class="option"><input type="radio" name="q5" value="a"> A) Presentation</div>
+                <div class="option"><input type="radio" name="q5" value="b"> B) Session</div>
+                <div class="option"><input type="radio" name="q5" value="c"> C) Application</div>
+                <div class="option"><input type="radio" name="q5" value="d"> D) Network</div>
+            </div>
+            <div class="view-explanation" onclick="toggleExplanation('explanation5')">عرض الشرح</div>
+            <div id="explanation5" class="explanation">
+                Session Layer مسؤولة عن إدارة وإنهاء الـ Sessions
+            </div>
+            <button class="submit-btn" onclick="checkAnswer('q5', 'b', 'explanation5')">Submit</button>
+        </div>
+        <!-- Q6 -->
+        <div class="question-block">
+            <div class="question">Q6: Which OSI layer transmits raw bits over a physical medium?</div>
+            <div class="options">
+                <div class="option"><input type="radio" name="q6" value="a"> A) Data Link</div>
+                <div class="option"><input type="radio" name="q6" value="b"> B) Network</div>
+                <div class="option"><input type="radio" name="q6" value="c"> C) Physical</div>
+                <div class="option"><input type="radio" name="q6" value="d"> D) Transport</div>
+            </div>
+            <div class="view-explanation" onclick="toggleExplanation('explanation6')">عرض الشرح</div>
+            <div id="explanation6" class="explanation">
+                Physical Layer هي اللي بتمرر الإشارات الكهربائية والكابلات
+            </div>
+            <button class="submit-btn" onclick="checkAnswer('q6', 'c', 'explanation6')">Submit</button>
+        </div>
+        <!-- Q7 -->
+        <div class="question-block">
+            <div class="question">Q7: Where does DNS primarily operate in OSI model?</div>
+            <div class="options">
+                <div class="option"><input type="radio" name="q7" value="a"> A) Application</div>
+                <div class="option"><input type="radio" name="q7" value="b"> B) Network</div>
+                <div class="option"><input type="radio" name="q7" value="c"> C) Transport</div>
+                <div class="option"><input type="radio" name="q7" value="d"> D) Session</div>
+            </div>
+            <div class="view-explanation" onclick="toggleExplanation('explanation7')">عرض الشرح</div>
+            <div id="explanation7" class="explanation">
+                DNS بروتوكول من طبقة الـ Application
+            </div>
+            <button class="submit-btn" onclick="checkAnswer('q7', 'a', 'explanation7')">Submit</button>
+        </div>
+        <!-- Q8 -->
+        <div class="question-block">
+            <div class="question">Q8: In which layer would you find HTTP?</div>
+            <div class="options">
+                <div class="option"><input type="radio" name="q8" value="a"> A) Transport</div>
+                <div class="option"><input type="radio" name="q8" value="b"> B) Application</div>
+                <div class="option"><input type="radio" name="q8" value="c"> C) Network</div>
+                <div class="option"><input type="radio" name="q8" value="d"> D) Data Link</div>
+            </div>
+            <div class="view-explanation" onclick="toggleExplanation('explanation8')">عرض الشرح</div>
+            <div id="explanation8" class="explanation">
+                HTTP بيشتغل في الـ Application Layer
+            </div>
+            <button class="submit-btn" onclick="checkAnswer('q8', 'b', 'explanation8')">Submit</button>
+        </div>
+        <!-- Q9 -->
+        <div class="question-block">
+            <div class="question">Q9: Which layer is responsible for multiplexing using ports?</div>
+            <div class="options">
+                <div class="option"><input type="radio" name="q9" value="a"> A) Transport</div>
+                <div class="option"><input type="radio" name="q9" value="b"> B) Network</div>
+                <div class="option"><input type="radio" name="q9" value="c"> C) Data Link</div>
+                <div class="option"><input type="radio" name="q9" value="d"> D) Session</div>
+            </div>
+            <div class="view-explanation" onclick="toggleExplanation('explanation9')">عرض الشرح</div>
+            <div id="explanation9" class="explanation">
+                الـ Transport Layer بتستخدم الـ Ports لعمل Multiplexing
+            </div>
+            <button class="submit-btn" onclick="checkAnswer('q9', 'a', 'explanation9')">Submit</button>
+        </div>
+        <!-- Q10 -->
+        <div class="question-block">
+            <div class="question">Q10: Encoding happens in which OSI layer?</div>
+            <div class="options">
+                <div class="option"><input type="radio" name="q10" value="a"> A) Session</div>
+                <div class="option"><input type="radio" name="q10" value="b"> B) Presentation</div>
+                <div class="option"><input type="radio" name="q10" value="c"> C) Network</div>
+                <div class="option"><input type="radio" name="q10" value="d"> D) Application</div>
+            </div>
+            <div class="view-explanation" onclick="toggleExplanation('explanation10')">عرض الشرح</div>
+            <div id="explanation10" class="explanation">
+                Encoding/Decoding بيتم في Presentation Layer
+            </div>
+            <button class="submit-btn" onclick="checkAnswer('q10', 'b', 'explanation10')">Submit</button>
+        </div>
+
+        <!-- قسم Protocols & Ports -->
+        <div id="ports" class="section-title">المنافذ والبروتوكولات</div>
+        <!-- Q11 -->
+        <div class="question-block">
+            <div class="question">Q11: Port number for HTTP?</div>
+            <div class="options">
+                <div class="option"><input type="radio" name="q11" value="a"> A) 80</div>
+                <div class="option"><input type="radio" name="q11" value="b"> B) 443</div>
+                <div class="option"><input type="radio" name="q11" value="c"> C) 25</div>
+                <div class="option"><input type="radio" name="q11" value="d"> D) 53</div>
+            </div>
+            <div class="view-explanation" onclick="toggleExplanation('explanation11')">عرض الشرح</div>
+            <div id="explanation11" class="explanation">
+                HTTP بيشتغل على Port 80
+            </div>
+            <button class="submit-btn" onclick="checkAnswer('q11', 'a', 'explanation11')">Submit</button>
+        </div>
+        <!-- Q12 -->
+        <div class="question-block">
+            <div class="question">Q12: HTTPS uses which port?</div>
+            <div class="options">
+                <div class="option"><input type="radio" name="q12" value="a"> A) 21</div>
+                <div class="option"><input type="radio" name="q12" value="b"> B) 53</div>
+                <div class="option"><input type="radio" name="q12" value="c"> C) 443</div>
+                <div class="option"><input type="radio" name="q12" value="d"> D) 110</div>
+            </div>
+            <div class="view-explanation" onclick="toggleExplanation('explanation12')">عرض الشرح</div>
+            <div id="explanation12" class="explanation">
+                HTTPS بيشتغل على Port 443
+            </div>
+            <button class="submit-btn" onclick="checkAnswer('q12', 'c', 'explanation12')">Submit</button>
+        </div>
+        <!-- Q13 -->
+        <div class="question-block">
+            <div class="question">Q13: FTP control channel uses port?</div>
+            <div class="options">
+                <div class="option"><input type="radio" name="q13" value="a"> A) 20</div>
+                <div class="option"><input type="radio" name="q13" value="b"> B) 21</div>
+                <div class="option"><input type="radio" name="q13" value="c"> C) 22</div>
+                <div class="option"><input type="radio" name="q13" value="d"> D) 23</div>
+            </div>
+            <div class="view-explanation" onclick="toggleExplanation('explanation13')">عرض الشرح</div>
+            <div id="explanation13" class="explanation">
+                FTP Control على Port 21
+            </div>
+            <button class="submit-btn" onclick="checkAnswer('q13', 'b', 'explanation13')">Submit</button>
+        </div>
+        <!-- Q14 -->
+        <div class="question-block">
+            <div class="question">Q14: FTP data channel uses port?</div>
+            <div class="options">
+                <div class="option"><input type="radio" name="q14" value="a"> A) 20</div>
+                <div class="option"><input type="radio" name="q14" value="b"> B) 21</div>
+                <div class="option"><input type="radio" name="q14" value="c"> C) 22</div>
+                <div class="option"><input type="radio" name="q14" value="d"> D) 23</div>
+            </div>
+            <div class="view-explanation" onclick="toggleExplanation('explanation14')">عرض الشرح</div>
+            <div id="explanation14" class="explanation">
+                FTP Data على Port 20
+            </div>
+            <button class="submit-btn" onclick="checkAnswer('q14', 'a', 'explanation14')">Submit</button>
+        </div>
+        <!-- Q15 -->
+        <div class="question-block">
+            <div class="question">Q15: DNS uses which port?</div>
+            <div class="options">
+                <div class="option"><input type="radio" name="q15" value="a"> A) 80</div>
+                <div class="option"><input type="radio" name="q15" value="b"> B) 53</div>
+                <div class="option"><input type="radio" name="q15" value="c"> C) 110</div>
+                <div class="option"><input type="radio" name="q15" value="d"> D) 143</div>
+            </div>
+            <div class="view-explanation" onclick="toggleExplanation('explanation15')">عرض الشرح</div>
+            <div id="explanation15" class="explanation">
+                DNS بيستخدم Port 53
+            </div>
+            <button class="submit-btn" onclick="checkAnswer('q15', 'b', 'explanation15')">Submit</button>
+        </div>
+        <!-- Q16 -->
+        <div class="question-block">
+            <div class="question">Q16: SMTP default port?</div>
+            <div class="options">
+                <div class="option"><input type="radio" name="q16" value="a"> A) 25</div>
+                <div class="option"><input type="radio" name="q16" value="b"> B) 110</div>
+                <div class="option"><input type="radio" name="q16" value="c"> C) 443</div>
+                <div class="option"><input type="radio" name="q16" value="d"> D) 993</div>
+            </div>
+            <div class="view-explanation" onclick="toggleExplanation('explanation16')">عرض الشرح</div>
+            <div id="explanation16" class="explanation">
+                SMTP لإرسال الإيميلات على Port 25 (وفيه 465 لـ Secure SMTP)
+            </div>
+            <button class="submit-btn" onclick="checkAnswer('q16', 'a', 'explanation16')">Submit</button>
+        </div>
+        <!-- Q17 -->
+        <div class="question-block">
+            <div class="question">Q17: POP3 default port?</div>
+            <div class="options">
+                <div class="option"><input type="radio" name="q17" value="a"> A) 110</div>
+                <div class="option"><input type="radio" name="q17" value="b"> B) 995</div>
+                <div class="option"><input type="radio" name="q17" value="c"> C) 143</div>
+                <div class="option"><input type="radio" name="q17" value="d"> D) 993</div>
+            </div>
+            <div class="view-explanation" onclick="toggleExplanation('explanation17')">عرض الشرح</div>
+            <div id="explanation17" class="explanation">
+                POP3 بيشتغل على Port 110 (و995 للنسخة الـ Secure)
+            </div>
+            <button class="submit-btn" onclick="checkAnswer('q17', 'a', 'explanation17')">Submit</button>
+        </div>
+        <!-- Q18 -->
+        <div class="question-block">
+            <div class="question">Q18: IMAP default port?</div>
+            <div class="options">
+                <div class="option"><input type="radio" name="q18" value="a"> A) 143</div>
+                <div class="option"><input type="radio" name="q18" value="b"> B) 993</div>
+                <div class="option"><input type="radio" name="q18" value="c"> C) 110</div>
+                <div class="option"><input type="radio" name="q18" value="d"> D) 25</div>
+            </div>
+            <div class="view-explanation" onclick="toggleExplanation('explanation18')">عرض الشرح</div>
+            <div id="explanation18" class="explanation">
+                IMAP على Port 143 (و993 للنسخة الـ Secure)
+            </div>
+            <button class="submit-btn" onclick="checkAnswer('q18', 'a', 'explanation18')">Submit</button>
+        </div>
+        <!-- Q19 -->
+        <div class="question-block">
+            <div class="question">Q19: SSH port number?</div>
+            <div class="options">
+                <div class="option"><input type="radio" name="q19" value="a"> A) 22</div>
+                <div class="option"><input type="radio" name="q19" value="b"> B) 23</div>
+                <div class="option"><input type="radio" name="q19" value="c"> C) 25</div>
+                <div class="option"><input type="radio" name="q19" value="d"> D) 21</div>
+            </div>
+            <div class="view-explanation" onclick="toggleExplanation('explanation19')">عرض الشرح</div>
+            <div id="explanation19" class="explanation">
+                SSH بيشتغل على Port 22
+            </div>
+            <button class="submit-btn" onclick="checkAnswer('q19', 'a', 'explanation19')">Submit</button>
+        </div>
+        <!-- Q20 -->
+        <div class="question-block">
+            <div class="question">Q20: Telnet uses which port?</div>
+            <div class="options">
+                <div class="option"><input type="radio" name="q20" value="a"> A) 22</div>
+                <div class="option"><input type="radio" name="q20" value="b"> B) 23</div>
+                <div class="option"><input type="radio" name="q20" value="c"> C) 21</div>
+                <div class="option"><input type="radio" name="q20" value="d"> D) 443</div>
+            </div>
+            <div class="view-explanation" onclick="toggleExplanation('explanation20')">عرض الشرح</div>
+            <div id="explanation20" class="explanation">
+                Telnet على Port 23
+            </div>
+            <button class="submit-btn" onclick="checkAnswer('q20', 'b', 'explanation20')">Submit</button>
+        </div>
+        <!-- Q21 -->
+        <div class="question-block">
+            <div class="question">Q21: Which protocol is used for secure file transfer over SSH?</div>
+            <div class="options">
+                <div class="option"><input type="radio" name="q21" value="a"> A) FTP</div>
+                <div class="option"><input type="radio" name="q21" value="b"> B) SFTP</div>
+                <div class="option"><input type="radio" name="q21" value="c"> C) TFTP</div>
+                <div class="option"><input type="radio" name="q21" value="d"> D) HTTP</div>
+            </div>
+            <div class="view-explanation" onclick="toggleExplanation('explanation21')">عرض الشرح</div>
+            <div id="explanation21" class="explanation">
+                SFTP هو FTP آمن بيشتغل فوق SSH على Port 22
+            </div>
+            <button class="submit-btn" onclick="checkAnswer('q21', 'b', 'explanation21')">Submit</button>
+        </div>
+        <!-- Q22 -->
+        <div class="question-block">
+            <div class="question">Q22: Which protocol uses UDP port 69?</div>
+            <div class="options">
+                <div class="option"><input type="radio" name="q22" value="a"> A) TFTP</div>
+                <div class="option"><input type="radio" name="q22" value="b"> B) FTP</div>
+                <div class="option"><input type="radio" name="q22" value="c"> C) SMTP</div>
+                <div class="option"><input type="radio" name="q22" value="d"> D) IMAP</div>
+            </div>
+            <div class="view-explanation" onclick="toggleExplanation('explanation22')">عرض الشرح</div>
+            <div id="explanation22" class="explanation">
+                TFTP بيستخدم Port 69 وبيركز على نقل الملفات البسيط
+            </div>
+            <button class="submit-btn" onclick="checkAnswer('q22', 'a', 'explanation22')">Submit</button>
+        </div>
+        <!-- Q23 -->
+        <div class="question-block">
+            <div class="question">Q23: Which protocol uses port 161 for network management?</div>
+            <div class="options">
+                <div class="option"><input type="radio" name="q23" value="a"> A) SNMP</div>
+                <div class="option"><input type="radio" name="q23" value="b"> B) SMTP</div>
+                <div class="option"><input type="radio" name="q23" value="c"> C) HTTP</div>
+                <div class="option"><input type="radio" name="q23" value="d"> D) DNS</div>
+            </div>
+            <div class="view-explanation" onclick="toggleExplanation('explanation23')">عرض الشرح</div>
+            <div id="explanation23" class="explanation">
+                SNMP لإدارة الشبكات بيشتغل على Port 161
+            </div>
+            <button class="submit-btn" onclick="checkAnswer('q23', 'a', 'explanation23')">Submit</button>
+        </div>
+        <!-- Q24 -->
+        <div class="question-block">
+            <div class="question">Q24: Which protocol uses port 3389?</div>
+            <div class="options">
+                <div class="option"><input type="radio" name="q24" value="a"> A) SSH</div>
+                <div class="option"><input type="radio" name="q24" value="b"> B) RDP</div>
+                <div class="option"><input type="radio" name="q24" value="c"> C) Telnet</div>
+                <div class="option"><input type="radio" name="q24" value="d"> D) FTP</div>
+            </div>
+            <div class="view-explanation" onclick="toggleExplanation('explanation24')">عرض الشرح</div>
+            <div id="explanation24" class="explanation">
+                RDP للتحكم عن بعد في الويندوز على Port 3389
+            </div>
+            <button class="submit-btn" onclick="checkAnswer('q24', 'b', 'explanation24')">Submit</button>
+        </div>
+        <!-- Q25 -->
+        <div class="question-block">
+            <div class="question">Q25: Which protocol is used to resolve IP addresses to MAC addresses?</div>
+            <div class="options">
+                <div class="option"><input type="radio" name="q25" value="a"> A) DNS</div>
+                <div class="option"><input type="radio" name="q25" value="b"> B) ARP</div>
+                <div class="option"><input type="radio" name="q25" value="c"> C) ICMP</div>
+                <div class="option"><input type="radio" name="q25" value="d"> D) DHCP</div>
+            </div>
+            <div class="view-explanation" onclick="toggleExplanation('explanation25')">عرض الشرح</div>
+            <div id="explanation25" class="explanation">
+                ARP بيترجم الـ IP لـ MAC Address
+            </div>
+            <button class="submit-btn" onclick="checkAnswer('q25', 'b', 'explanation25')">Submit</button>
+        </div>
+        <!-- Q26 -->
+        <div class="question-block">
+            <div class="question">Q26: Which protocol uses port 67/68 for IP assignment?</div>
+            <div class="options">
+                <div class="option"><input type="radio" name="q26" value="a"> A) DNS</div>
+                <div class="option"><input type="radio" name="q26" value="b"> B) DHCP</div>
+                <div class="option"><input type="radio" name="q26" value="c"> C) HTTP</div>
+                <div class="option"><input type="radio" name="q26" value="d"> D) ICMP</div>
+            </div>
+            <div class="view-explanation" onclick="toggleExplanation('explanation26')">عرض الشرح</div>
+            <div id="explanation26" class="explanation">
+                DHCP بيستخدم Port 67 و68 عشان يوزع الـ IP Addresses
+            </div>
+            <button class="submit-btn" onclick="checkAnswer('q26', 'b', 'explanation26')">Submit</button>
+        </div>
+        <!-- Q27 -->
+        <div class="question-block">
+            <div class="question">Q27: Which protocol is used for ping tests?</div>
+            <div class="options">
+                <div class="option"><input type="radio" name="q27" value="a"> A) ICMP</div>
+                <div class="option"><input type="radio" name="q27" value="b"> B) TCP</div>
+                <div class="option"><input type="radio" name="q27" value="c"> C) UDP</div>
+                <div class="option"><input type="radio" name="q27" value="d"> D) FTP</div>
+            </div>
+            <div class="view-explanation" onclick="toggleExplanation('explanation27')">عرض الشرح</div>
+            <div id="explanation27" class="explanation">
+                ICMP هو اللي بيعمل Ping و Echo Requests
+            </div>
+            <button class="submit-btn" onclick="checkAnswer('q27', 'a', 'explanation27')">Submit</button>
+        </div>
+        <!-- Q28 -->
+        <div class="question-block">
+            <div class="question">Q28: Which protocol uses port 445 in Windows?</div>
+            <div class="options">
+                <div class="option"><input type="radio" name="q28" value="a"> A) SMB</div>
+                <div class="option"><input type="radio" name="q28" value="b"> B) NFS</div>
+                <div class="option"><input type="radio" name="q28" value="c"> C) FTP</div>
+                <div class="option"><input type="radio" name="q28" value="d"> D) Telnet</div>
+            </div>
+            <div class="view-explanation" onclick="toggleExplanation('explanation28')">عرض الشرح</div>
+            <div id="explanation28" class="explanation">
+                SMB بيستخدم Port 445 لمشاركة الملفات والطابعات
+            </div>
+            <button class="submit-btn" onclick="checkAnswer('q28', 'a', 'explanation28')">Submit</button>
+        </div>
+        <!-- Q29 -->
+        <div class="question-block">
+            <div class="question">Q29: Which protocol uses port 2049?</div>
+            <div class="options">
+                <div class="option"><input type="radio" name="q29" value="a"> A) SMB</div>
+                <div class="option"><input type="radio" name="q29" value="b"> B) NFS</div>
+                <div class="option"><input type="radio" name="q29" value="c"> C) FTP</div>
+                <div class="option"><input type="radio" name="q29" value="d"> D) HTTP</div>
+            </div>
+            <div class="view-explanation" onclick="toggleExplanation('explanation29')">عرض الشرح</div>
+            <div id="explanation29" class="explanation">
+                NFS بيستخدم Port 2049 لمشاركة الملفات في بيئة Unix/Linux
+            </div>
+            <button class="submit-btn" onclick="checkAnswer('q29', 'b', 'explanation29')">Submit</button>
+        </div>
+        <!-- Q30 -->
+        <div class="question-block">
+            <div class="question">Q30: Which protocol uses port 389?</div>
+            <div class="options">
+                <div class="option"><input type="radio" name="q30" value="a"> A) LDAP</div>
+                <div class="option"><input type="radio" name="q30" value="b"> B) HTTPS</div>
+                <div class="option"><input type="radio" name="q30" value="c"> C) DNS</div>
+                <div class="option"><input type="radio" name="q30" value="d"> D) SMTP</div>
+            </div>
+            <div class="view-explanation" onclick="toggleExplanation('explanation30')">عرض الشرح</div>
+            <div id="explanation30" class="explanation">
+                LDAP بيشتغل على Port 389 لإدارة الدليل Directory
+            </div>
+            <button class="submit-btn" onclick="checkAnswer('q30', 'a', 'explanation30')">Submit</button>
+        </div>
+        <!-- Q31 -->
+        <div class="question-block">
+            <div class="question">Q31: Which IP class is used for multicasting?</div>
+            <div class="options">
+                <div class="option"><input type="radio" name="q31" value="a"> A) Class A</div>
+                <div class="option"><input type="radio" name="q31" value="b"> B) Class B</div>
+                <div class="option"><input type="radio" name="q31" value="c"> C) Class C</div>
+                <div class="option"><input type="radio" name="q31" value="d"> D) Class D</div>
+            </div>
+            <div class="view-explanation" onclick="toggleExplanation('explanation31')">عرض الشرح</div>
+            <div id="explanation31" class="explanation">
+                Class D (224.0.0.0 – 239.255.255.255) للمولت كاست
+            </div>
+            <button class="submit-btn" onclick="checkAnswer('q31', 'd', 'explanation31')">Submit</button>
+        </div>
+        <!-- Q32 -->
+        <div class="question-block">
+            <div class="question">Q32: Which OSI layer handles routing?</div>
+            <div class="options">
+                <div class="option"><input type="radio" name="q32" value="a"> A) Transport</div>
+                <div class="option"><input type="radio" name="q32" value="b"> B) Network</div>
+                <div class="option"><input type="radio" name="q32" value="c"> C) Session</div>
+                <div class="option"><input type="radio" name="q32" value="d"> D) Data Link</div>
+            </div>
+            <div class="view-explanation" onclick="toggleExplanation('explanation32')">عرض الشرح</div>
+            <div id="explanation32" class="explanation">
+                الـ Network Layer مسؤولة عن التوجيه باستخدام الـ IP
+            </div>
+            <button class="submit-btn" onclick="checkAnswer('q32', 'b', 'explanation32')">Submit</button>
+        </div>
+        <!-- Q33 -->
+        <div class="question-block">
+            <div class="question">Q33: Which OSI layer handles error detection with CRC?</div>
+            <div class="options">
+                <div class="option"><input type="radio" name="q33" value="a"> A) Physical</div>
+                <div class="option"><input type="radio" name="q33" value="b"> B) Data Link</div>
+                <div class="option"><input type="radio" name="q33" value="c"> C) Transport</div>
+                <div class="option"><input type="radio" name="q33" value="d"> D) Application</div>
+            </div>
+            <div class="view-explanation" onclick="toggleExplanation('explanation33')">عرض الشرح</div>
+            <div id="explanation33" class="explanation">
+                Data Link Layer بتستخدم CRC لفحص الأخطاء
+            </div>
+            <button class="submit-btn" onclick="checkAnswer('q33', 'b', 'explanation33')">Submit</button>
+        </div>
+        <!-- Q34 -->
+        <div class="question-block">
+            <div class="question">Q34: Which OSI layer uses logical addressing?</div>
+            <div class="options">
+                <div class="option"><input type="radio" name="q34" value="a"> A) Physical</div>
+                <div class="option"><input type="radio" name="q34" value="b"> B) Network</div>
+                <div class="option"><input type="radio" name="q34" value="c"> C) Transport</div>
+                <div class="option"><input type="radio" name="q34" value="d"> D) Application</div>
+            </div>
+            <div class="view-explanation" onclick="toggleExplanation('explanation34')">عرض الشرح</div>
+            <div id="explanation34" class="explanation">
+                Network Layer بتتعامل مع الـ IP (عنوان منطقي)
+            </div>
+            <button class="submit-btn" onclick="checkAnswer('q34', 'b', 'explanation34')">Submit</button>
+        </div>
+        <!-- Q35 -->
+        <div class="question-block">
+            <div class="question">Q35: Which OSI layer is closest to the end user?</div>
+            <div class="options">
+                <div class="option"><input type="radio" name="q35" value="a"> A) Application</div>
+                <div class="option"><input type="radio" name="q35" value="b"> B) Presentation</div>
+                <div class="option"><input type="radio" name="q35" value="c"> C) Session</div>
+                <div class="option"><input type="radio" name="q35" value="d"> D) Transport</div>
+            </div>
+            <div class="view-explanation" onclick="toggleExplanation('explanation35')">عرض الشرح</div>
+            <div id="explanation35" class="explanation">
+                Application Layer هي اللي بيتعامل معاها اليوزر مباشرة
+            </div>
+            <button class="submit-btn" onclick="checkAnswer('q35', 'a', 'explanation35')">Submit</button>
+        </div>
+        <!-- Q36 -->
+        <div class="question-block">
+            <div class="question">Q36: Port 1433 is used by which service?</div>
+            <div class="options">
+                <div class="option"><input type="radio" name="q36" value="a"> A) MySQL</div>
+                <div class="option"><input type="radio" name="q36" value="b"> B) MSSQL</div>
+                <div class="option"><input type="radio" name="q36" value="c"> C) PostgreSQL</div>
+                <div class="option"><input type="radio" name="q36" value="d"> D) MongoDB</div>
+            </div>
+            <div class="view-explanation" onclick="toggleExplanation('explanation36')">عرض الشرح</div>
+            <div id="explanation36" class="explanation">
+                Microsoft SQL Server بيشتغل على Port 1433
+            </div>
+            <button class="submit-btn" onclick="checkAnswer('q36', 'b', 'explanation36')">Submit</button>
+        </div>
+        <!-- Q37 -->
+        <div class="question-block">
+            <div class="question">Q37: Port 3306 is used by which database?</div>
+            <div class="options">
+                <div class="option"><input type="radio" name="q37" value="a"> A) MySQL</div>
+                <div class="option"><input type="radio" name="q37" value="b"> B) MSSQL</div>
+                <div class="option"><input type="radio" name="q37" value="c"> C) Oracle</div>
+                <div class="option"><input type="radio" name="q37" value="d"> D) PostgreSQL</div>
+            </div>
+            <div class="view-explanation" onclick="toggleExplanation('explanation37')">عرض الشرح</div>
+            <div id="explanation37" class="explanation">
+                MySQL بيشتغل على Port 3306
+            </div>
+            <button class="submit-btn" onclick="checkAnswer('q37', 'a', 'explanation37')">Submit</button>
+        </div>
+        <!-- Q38 -->
+        <div class="question-block">
+            <div class="question">Q38: Port 1521 is default for which DBMS?</div>
+            <div class="options">
+                <div class="option"><input type="radio" name="q38" value="a"> A) MySQL</div>
+                <div class="option"><input type="radio" name="q38" value="b"> B) Oracle DB</div>
+                <div class="option"><input type="radio" name="q38" value="c"> C) MSSQL</div>
+                <div class="option"><input type="radio" name="q38" value="d"> D) PostgreSQL</div>
+            </div>
+            <div class="view-explanation" onclick="toggleExplanation('explanation38')">عرض الشرح</div>
+            <div id="explanation38" class="explanation">
+                Oracle Database بيستخدم Port 1521
+            </div>
+            <button class="submit-btn" onclick="checkAnswer('q38', 'b', 'explanation38')">Submit</button>
+        </div>
+        <!-- Q39 -->
+        <div class="question-block">
+            <div class="question">Q39: Which protocol uses port 514 for logging?</div>
+            <div class="options">
+                <div class="option"><input type="radio" name="q39" value="a"> A) Syslog</div>
+                <div class="option"><input type="radio" name="q39" value="b"> B) SMTP</div>
+                <div class="option"><input type="radio" name="q39" value="c"> C) SNMP</div>
+                <div class="option"><input type="radio" name="q39" value="d"> D) FTP</div>
+            </div>
+            <div class="view-explanation" onclick="toggleExplanation('explanation39')">عرض الشرح</div>
+            <div id="explanation39" class="explanation">
+                Syslog بيستخدم Port 514 عشان يسجل Logs
+            </div>
+            <button class="submit-btn" onclick="checkAnswer('q39', 'a', 'explanation39')">Submit</button>
+        </div>
+        <!-- Q40 -->
+        <div class="question-block">
+            <div class="question">Q40: Which protocol is used to send web pages securely?</div>
+            <div class="options">
+                <div class="option"><input type="radio" name="q40" value="a"> A) HTTP</div>
+                <div class="option"><input type="radio" name="q40" value="b"> B) HTTPS</div>
+                <div class="option"><input type="radio" name="q40" value="c"> C) FTP</div>
+                <div class="option"><input type="radio" name="q40" value="d"> D) Telnet</div>
+            </div>
+            <div class="view-explanation" onclick="toggleExplanation('explanation40')">عرض الشرح</div>
+            <div id="explanation40" class="explanation">
+                HTTPS بيشفر الاتصال عبر Port 443
+            </div>
+            <button class="submit-btn" onclick="checkAnswer('q40', 'b', 'explanation40')">Submit</button>
+        </div>
+        <!-- Q41 -->
+        <div class="question-block">
+            <div class="question">Q41: Port 25 is used for?</div>
+            <div class="options">
+                <div class="option"><input type="radio" name="q41" value="a"> A) Receiving emails</div>
+                <div class="option"><input type="radio" name="q41" value="b"> B) Sending emails</div>
+                <div class="option"><input type="radio" name="q41" value="c"> C) File transfer</div>
+                <div class="option"><input type="radio" name="q41" value="d"> D) DNS</div>
+            </div>
+            <div class="view-explanation" onclick="toggleExplanation('explanation41')">عرض الشرح</div>
+            <div id="explanation41" class="explanation">
+                Port 25 هو للبروتوكول SMTP لإرسال الإيميلات
+            </div>
+            <button class="submit-btn" onclick="checkAnswer('q41', 'b', 'explanation41')">Submit</button>
+        </div>
+        <!-- Q42 -->
+        <div class="question-block">
+            <div class="question">Q42: Which OSI layer does UDP operate at?</div>
+            <div class="options">
+                <div class="option"><input type="radio" name="q42" value="a"> A) Application</div>
+                <div class="option"><input type="radio" name="q42" value="b"> B) Transport</div>
+                <div class="option"><input type="radio" name="q42" value="c"> C) Network</div>
+                <div class="option"><input type="radio" name="q42" value="d"> D) Data Link</div>
+            </div>
+            <div class="view-explanation" onclick="toggleExplanation('explanation42')">عرض الشرح</div>
+            <div id="explanation42" class="explanation">
+                زي TCP، UDP بيشتغل في الـ Transport Layer
+            </div>
+            <button class="submit-btn" onclick="checkAnswer('q42', 'b', 'explanation42')">Submit</button>
+        </div>
+        <!-- Q43 -->
+        <div class="question-block">
+            <div class="question">Q43: Which protocol is connectionless?</div>
+            <div class="options">
+                <div class="option"><input type="radio" name="q43" value="a"> A) TCP</div>
+                <div class="option"><input type="radio" name="q43" value="b"> B) UDP</div>
+                <div class="option"><input type="radio" name="q43" value="c"> C) FTP</div>
+                <div class="option"><input type="radio" name="q43" value="d"> D) HTTP</div>
+            </div>
+            <div class="view-explanation" onclick="toggleExplanation('explanation43')">عرض الشرح</div>
+            <div id="explanation43" class="explanation">
+                UDP بيبعت البيانات بدون تأكيد أو إنشاء اتصال
+            </div>
+            <button class="submit-btn" onclick="checkAnswer('q43', 'b', 'explanation43')">Submit</button>
+        </div>
+        <!-- Q44 -->
+        <div class="question-block">
+            <div class="question">Q44: Which protocol uses port 119 for Usenet?</div>
+            <div class="options">
+                <div class="option"><input type="radio" name="q44" value="a"> A) NNTP</div>
+                <div class="option"><input type="radio" name="q44" value="b"> B) SMTP</div>
+                <div class="option"><input type="radio" name="q44" value="c"> C) FTP</div>
+                <div class="option"><input type="radio" name="q44" value="d"> D) HTTP</div>
+            </div>
+            <div class="view-explanation" onclick="toggleExplanation('explanation44')">عرض الشرح</div>
+            <div id="explanation44" class="explanation">
+                NNTP بيشتغل على Port 119
+            </div>
+            <button class="submit-btn" onclick="checkAnswer('q44', 'a', 'explanation44')">Submit</button>
+        </div>
+        <!-- Q45 -->
+        <div class="question-block">
+            <div class="question">Q45: Which protocol resolves hostnames to IP addresses?</div>
+            <div class="options">
+                <div class="option"><input type="radio" name="q45" value="a"> A) DNS</div>
+                <div class="option"><input type="radio" name="q45" value="b"> B) DHCP</div>
+                <div class="option"><input type="radio" name="q45" value="c"> C) ARP</div>
+                <div class="option"><input type="radio" name="q45" value="d"> D) ICMP</div>
+            </div>
+            <div class="view-explanation" onclick="toggleExplanation('explanation45')">عرض الشرح</div>
+            <div id="explanation45" class="explanation">
+                DNS بيحول اسم الدومين لـ IP
+            </div>
+            <button class="submit-btn" onclick="checkAnswer('q45', 'a', 'explanation45')">Submit</button>
+        </div>
+        <!-- Q46 -->
+        <div class="question-block">
+            <div class="question">Q46: Port 23 is used for?</div>
+            <div class="options">
+                <div class="option"><input type="radio" name="q46" value="a"> A) SSH</div>
+                <div class="option"><input type="radio" name="q46" value="b"> B) Telnet</div>
+                <div class="option"><input type="radio" name="q46" value="c"> C) FTP</div>
+                <div class="option"><input type="radio" name="q46" value="d"> D) HTTP</div>
+            </div>
+            <div class="view-explanation" onclick="toggleExplanation('explanation46')">عرض الشرح</div>
+            <div id="explanation46" class="explanation">
+                Telnet بيشتغل على Port 23
+            </div>
+            <button class="submit-btn" onclick="checkAnswer('q46', 'b', 'explanation46')">Submit</button>
+        </div>
+        <!-- Q47 -->
+        <div class="question-block">
+            <div class="question">Q47: Which OSI layer controls data segmentation?</div>
+            <div class="options">
+                <div class="option"><input type="radio" name="q47" value="a"> A) Transport</div>
+                <div class="option"><input type="radio" name="q47" value="b"> B) Network</div>
+                <div class="option"><input type="radio" name="q47" value="c"> C) Data Link</div>
+                <div class="option"><input type="radio" name="q47" value="d"> D) Physical</div>
+            </div>
+            <div class="view-explanation" onclick="toggleExplanation('explanation47')">عرض الشرح</div>
+            <div id="explanation47" class="explanation">
+                Transport Layer بتقسم البيانات لـ Segments
+            </div>
+            <button class="submit-btn" onclick="checkAnswer('q47', 'a', 'explanation47')">Submit</button>
+        </div>
+        <!-- Q48 -->
+        <div class="question-block">
+            <div class="question">Q48: Port 1812 is used for which authentication protocol?</div>
+            <div class="options">
+                <div class="option"><input type="radio" name="q48" value="a"> A) RADIUS</div>
+                <div class="option"><input type="radio" name="q48" value="b"> B) LDAP</div>
+                <div class="option"><input type="radio" name="q48" value="c"> C) TACACS+</div>
+                <div class="option"><input type="radio" name="q48" value="d"> D) Kerberos</div>
+            </div>
+            <div class="view-explanation" onclick="toggleExplanation('explanation48')">عرض الشرح</div>
+            <div id="explanation48" class="explanation">
+                RADIUS بيشتغل على Port 1812
+            </div>
+            <button class="submit-btn" onclick="checkAnswer('q48', 'a', 'explanation48')">Submit</button>
+        </div>
+        <!-- Q49 -->
+        <div class="question-block">
+            <div class="question">Q49: Which protocol uses port 69?</div>
+            <div class="options">
+                <div class="option"><input type="radio" name="q49" value="a"> A) FTP</div>
+                <div class="option"><input type="radio" name="q49" value="b"> B) TFTP</div>
+                <div class="option"><input type="radio" name="q49" value="c"> C) HTTP</div>
+                <div class="option"><input type="radio" name="q49" value="d"> D) Telnet</div>
+            </div>
+            <div class="view-explanation" onclick="toggleExplanation('explanation49')">عرض الشرح</div>
+            <div id="explanation49" class="explanation">
+                زي ما قلنا قبل كده، TFTP على Port 69
+            </div>
+            <button class="submit-btn" onclick="checkAnswer('q49', 'b', 'explanation49')">Submit</button>
+        </div>
+        <!-- Q50 -->
+        <div class="question-block">
+            <div class="question">Q50: Which layer does SSL/TLS belong to in OSI model?</div>
+            <div class="options">
+                <div class="option"><input type="radio" name="q50" value="a"> A) Application</div>
+                <div class="option"><input type="radio" name="q50" value="b"> B) Presentation</div>
+                <div class="option"><input type="radio" name="q50" value="c"> C) Session</div>
+                <div class="option"><input type="radio" name="q50" value="d"> D) Transport</div>
+            </div>
+            <div class="view-explanation" onclick="toggleExplanation('explanation50')">عرض الشرح</div>
+            <div id="explanation50" class="explanation">
+                SSL/TLS يعتبر من وظائف الـ Presentation Layer لأنه بيشفر البيانات
+            </div>
+            <button class="submit-btn" onclick="checkAnswer('q50', 'b', 'explanation50')">Submit</button>
+        </div>
+
+        <!-- قسم IP Classes -->
+        <div id="ip-classes" class="section-title">فئات الـ IP</div>
+        <!-- Q51 -->
+        <div class="question-block">
+            <div class="question">Q51: IP `10.15.20.30` belongs to which class?</div>
+            <div class="options">
+                <div class="option"><input type="radio" name="q51" value="a"> A) Class A</div>
+                <div class="option"><input type="radio" name="q51" value="b"> B) Class B</div>
+                <div class="option"><input type="radio" name="q51" value="c"> C) Class C</div>
+                <div class="option"><input type="radio" name="q51" value="d"> D) Class D</div>
+            </div>
+            <div class="view-explanation" onclick="toggleExplanation('explanation51')">عرض الشرح</div>
+            <div id="explanation51" class="explanation">
+                Class A من 1.0.0.0 لحد 126.255.255.255
+            </div>
+            <button class="submit-btn" onclick="checkAnswer('q51', 'a', 'explanation51')">Submit</button>
+        </div>
+        <!-- Q52 -->
+        <div class="question-block">
+            <div class="question">Q52: IP `172.20.5.7` belongs to which class?</div>
+            <div class="options">
+                <div class="option"><input type="radio" name="q52" value="a"> A) Class A</div>
+                <div class="option"><input type="radio" name="q52" value="b"> B) Class B</div>
+                <div class="option"><input type="radio" name="q52" value="c"> C) Class C</div>
+                <div class="option"><input type="radio" name="q52" value="d"> D) Class D</div>
+            </div>
+            <div class="view-explanation" onclick="toggleExplanation('explanation52')">عرض الشرح</div>
+            <div id="explanation52" class="explanation">
+                Class B من 128.0.0.0 لحد 191.255.255.255 لكن فيه Private Range من 172.16.0.0 لحد 172.31.255.255
+            </div>
+            <button class="submit-btn" onclick="checkAnswer('q52', 'b', 'explanation52')">Submit</button>
+        </div>
+        <!-- Q53 -->
+        <div class="question-block">
+            <div class="question">Q53: IP `192.168.10.5` belongs to which class?</div>
+            <div class="options">
+                <div class="option"><input type="radio" name="q53" value="a"> A) Class A</div>
+                <div class="option"><input type="radio" name="q53" value="b"> B) Class B</div>
+                <div class="option"><input type="radio" name="q53" value="c"> C) Class C</div>
+                <div class="option"><input type="radio" name="q53" value="d"> D) Class D</div>
+            </div>
+            <div class="view-explanation" onclick="toggleExplanation('explanation53')">عرض الشرح</div>
+            <div id="explanation53" class="explanation">
+                Class C من 192.0.0.0 لحد 223.255.255.255
+            </div>
+            <button class="submit-btn" onclick="checkAnswer('q53', 'c', 'explanation53')">Submit</button>
+        </div>
+        <!-- Q54 -->
+        <div class="question-block">
+            <div class="question">Q54: IP `224.0.0.1` belongs to which class?</div>
+            <div class="options">
+                <div class="option"><input type="radio" name="q54" value="a"> A) Class A</div>
+                <div class="option"><input type="radio" name="q54" value="b"> B) Class B</div>
+                <div class="option"><input type="radio" name="q54" value="c"> C) Class C</div>
+                <div class="option"><input type="radio" name="q54" value="d"> D) Class D</div>
+            </div>
+            <div class="view-explanation" onclick="toggleExplanation('explanation54')">عرض الشرح</div>
+            <div id="explanation54" class="explanation">
+                Class D من 224.0.0.0 لحد 239.255.255.255 وده Multicast
+            </div>
+            <button class="submit-btn" onclick="checkAnswer('q54', 'd', 'explanation54')">Submit</button>
+        </div>
+        <!-- Q55 -->
+        <div class="question-block">
+            <div class="question">Q55: IP `150.100.50.25` belongs to which class?</div>
+            <div class="options">
+                <div class="option"><input type="radio" name="q55" value="a"> A) Class A</div>
+                <div class="option"><input type="radio" name="q55" value="b"> B) Class B</div>
+                <div class="option"><input type="radio" name="q55" value="c"> C) Class C</div>
+                <div class="option"><input type="radio" name="q55" value="d"> D) Class D</div>
+            </div>
+            <div class="view-explanation" onclick="toggleExplanation('explanation55')">عرض الشرح</div>
+            <div id="explanation55" class="explanation">
+                أول أوكتت 150 بيقع في مدى Class B
+            </div>
+            <button class="submit-btn" onclick="checkAnswer('q55', 'b', 'explanation55')">Submit</button>
+        </div>
+        <!-- Q56 -->
+        <div class="question-block">
+            <div class="question">Q56: Class A IP range is:</div>
+            <div class="options">
+                <div class="option"><input type="radio" name="q56" value="a"> A) 1.0.0.0 – 126.255.255.255</div>
+                <div class="option"><input type="radio" name="q56" value="b"> B) 128.0.0.0 – 191.255.255.255</div>
+                <div class="option"><input type="radio" name="q56" value="c"> C) 192.0.0.0 – 223.255.255.255</div>
+                <div class="option"><input type="radio" name="q56" value="d"> D) 224.0.0.0 – 239.255.255.255</div>
+            </div>
+            <div class="view-explanation" onclick="toggleExplanation('explanation56')">عرض الشرح</div>
+            <div id="explanation56" class="explanation">
+                Class A من 1.0.0.0 لحد 126.255.255.255
+            </div>
+            <button class="submit-btn" onclick="checkAnswer('q56', 'a', 'explanation56')">Submit</button>
+        </div>
+        <!-- Q57 -->
+        <div class="question-block">
+            <div class="question">Q57: Class C IP range is:</div>
+            <div class="options">
+                <div class="option"><input type="radio" name="q57" value="a"> A) 1.0.0.0 – 126.255.255.255</div>
+                <div class="option"><input type="radio" name="q57" value="b"> B) 128.0.0.0 – 191.255.255.255</div>
+                <div class="option"><input type="radio" name="q57" value="c"> C) 192.0.0.0 – 223.255.255.255</div>
+                <div class="option"><input type="radio" name="q57" value="d"> D) 224.0.0.0 – 239.255.255.255</div>
+            </div>
+            <div class="view-explanation" onclick="toggleExplanation('explanation57')">عرض الشرح</div>
+            <div id="explanation57" class="explanation">
+                Class C من 192.0.0.0 لحد 223.255.255.255
+            </div>
+            <button class="submit-btn" onclick="checkAnswer('q57', 'c', 'explanation57')">Submit</button>
+        </div>
+        <!-- Q58 -->
+        <div class="question-block">
+            <div class="question">Q58: Class D IP range is:</div>
+            <div class="options">
+                <div class="option"><input type="radio" name="q58" value="a"> A) 224.0.0.0 – 239.255.255.255</div>
+                <div class="option"><input type="radio" name="q58" value="b"> B) 240.0.0.0 – 255.255.255.255</div>
+                <div class="option"><input type="radio" name="q58" value="c"> C) 192.0.0.0 – 223.255.255.255</div>
+                <div class="option"><input type="radio" name="q58" value="d"> D) 128.0.0.0 – 191.255.255.255</div>
+            </div>
+            <div class="view-explanation" onclick="toggleExplanation('explanation58')">عرض الشرح</div>
+            <div id="explanation58" class="explanation">
+                Class D من 224.0.0.0 لحد 239.255.255.255
+            </div>
+            <button class="submit-btn" onclick="checkAnswer('q58', 'a', 'explanation58')">Submit</button>
+        </div>
+        <!-- Q59 -->
+        <div class="question-block">
+            <div class="question">Q59: Class B IP range is:</div>
+            <div class="options">
+                <div class="option"><input type="radio" name="q59" value="a"> A) 1.0.0.0 – 126.255.255.255</div>
+                <div class="option"><input type="radio" name="q59" value="b"> B) 128.0.0.0 – 191.255.255.255</div>
+                <div class="option"><input type="radio" name="q59" value="c"> C) 192.0.0.0 – 223.255.255.255</div>
+                <div class="option"><input type="radio" name="q59" value="d"> D) 224.0.0.0 – 239.255.255.255</div>
+            </div>
+            <div class="view-explanation" onclick="toggleExplanation('explanation59')">عرض الشرح</div>
+            <div id="explanation59" class="explanation">
+                Class B من 128.0.0.0 لحد 191.255.255.255
+            </div>
+            <button class="submit-btn" onclick="checkAnswer('q59', 'b', 'explanation59')">Submit</button>
+        </div>
+        <!-- Q60 -->
+        <div class="question-block">
+            <div class="question">Q60: Class E IP range is:</div>
+            <div class="options">
+                <div class="option"><input type="radio" name="q60" value="a"> A) 1.0.0.0 – 126.255.255.255</div>
+                <div class="option"><input type="radio" name="q60" value="b"> B) 128.0.0.0 – 191.255.255.255</div>
+                <div class="option"><input type="radio" name="q60" value="c"> C) 192.0.0.0 – 223.255.255.255</div>
+                <div class="option"><input type="radio" name="q60" value="d"> D) 240.0.0.0 – 255.255.255.255</div>
+            </div>
+            <div class="view-explanation" onclick="toggleExplanation('explanation60')">عرض الشرح</div>
+            <div id="explanation60" class="explanation">
+                Class E مخصص للتجارب من 240.0.0.0 لحد 255.255.255.255
+            </div>
+            <button class="submit-btn" onclick="checkAnswer('q60', 'd', 'explanation60')">Submit</button>
+        </div>
+    </div>
+    <footer>
+        © 2025 Networking Exam
+    </footer>
+
+    <script>
+        let score = 0;
+        let mistakes = 0;
+        const totalQuestions = 60;
+
+        // عرض وإخفاء الشرح
+        function toggleExplanation(id) {
+            const explanation = document.getElementById(id);
+            explanation.style.display = explanation.style.display === "none" ? "block" : "none";
+        }
+
+        // التحقق من الإجابة
+        function checkAnswer(questionName, correctValue, explanationId) {
+            const options = document.getElementsByName(questionName);
+            let isCorrect = false;
+            options.forEach(option => {
+                const optionDiv = option.parentElement;
+                if (option.checked) {
+                    if (option.value === correctValue) {
+                        optionDiv.classList.add("correct");
+                        score++;
+                        isCorrect = true;
+                    } else {
+                        optionDiv.classList.add("incorrect");
+                        mistakes++;
+                    }
+                    option.disabled = true;
+                }
+                if (option.value === correctValue && !option.checked) {
+                    optionDiv.classList.add("correct");
+                }
+            });
+            document.getElementById(explanationId).style.display = "block";
+            updateScore();
+            updateProgress();
+        }
+
+        // تحديث الأسكور
+        function updateScore() {
+            document.getElementById('score').textContent = score;
+            document.getElementById('mistakes').textContent = mistakes;
+        }
+
+        // تحديث شريط التقدم
+        function updateProgress() {
+            const answeredQuestions = score + mistakes;
+            const progressPercentage = (answeredQuestions / totalQuestions) * 100;
+            document.getElementById('progress').style.width = progressPercentage + '%';
+        }
+    </script>
+</body>
+</html>
